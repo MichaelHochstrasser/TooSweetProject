@@ -84,7 +84,12 @@ public class ReceiptArticle implements Serializable {
         Log.i("Volley","Sugar index  is: "+ sugar_index);
         Log.i("Volley","Sugar index  is: "+ response.indexOf("davon Zucker"));
         Log.i("Volley","Sugar: "+ sugarString);
-        double sugar = Double.parseDouble(sugarString);
+        double sugar = 0.0;
+        try {
+            sugar = Double.parseDouble(sugarString);
+        } catch (Exception e){
+            Log.e("Parse",e.getMessage());
+        }
         return sugar;
     }
     public void findArticleFromFoodrepo(){
@@ -93,7 +98,7 @@ public class ReceiptArticle implements Serializable {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         //String url ="https://produkte.migros.ch/sortiment?q=" + search;
-        String url = "https://produkte.migros.ch/m-budget-tomaten";
+        String url = "https://produkte.migros.ch/" + search;
         Log.i("Volley","URL: " + url);
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

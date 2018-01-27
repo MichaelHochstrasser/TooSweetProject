@@ -55,7 +55,9 @@ public class Receipt implements Serializable {
     public void setTransactionNumber(String transactionNumber) {
         TransactionNumber = transactionNumber;
     }
-
+    public int getNumberOfReceiptArticles(){
+        return this.ReceiptArticles.size();
+    }
     public List<ReceiptArticle> getReceiptArticles() {
         return ReceiptArticles;
     }

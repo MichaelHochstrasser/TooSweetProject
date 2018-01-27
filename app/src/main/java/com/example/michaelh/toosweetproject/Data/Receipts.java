@@ -28,7 +28,9 @@ public class Receipts implements Serializable {
     public void setReceipts(List<Receipt> Receipts) {
         this.Receipts = Receipts;
     }
-
+    public int getNumberOfReceipts(){
+        return Receipts.size();
+    }
     public Integer getReceipts_position(String TransactionNumber){
         for (int i = 0; i < Receipts.size(); i++) {
             if (Receipts.get(i).getTransactionNumber().equals(TransactionNumber)){
