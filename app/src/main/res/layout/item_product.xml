@@ -5,7 +5,7 @@
 
     <TextView
         android:id="@+id/txtProduct1"
-        android:layout_width="110dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
