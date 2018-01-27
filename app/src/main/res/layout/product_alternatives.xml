@@ -9,17 +9,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"
-        android:text="Produkt Name" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Produkt Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <ImageView
         android:id="@+id/imgProduct2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtProductName2"
+        android:layout_marginLeft="20dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
@@ -45,17 +48,20 @@
         android:id="@+id/txtAlternativeName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imgProduct2"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/imgProduct2"
-        android:layout_marginTop="57dp"
-        android:text="Alternative Product" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Alternative Product"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <ListView
         android:id="@+id/listAlternatives"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignStart="@+id/txtAlternativeName2"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/txtAlternativeName2"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="33dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp" />
 </RelativeLayout>
