@@ -5,7 +5,6 @@ package com.example.michaelh.toosweetproject.Data;
  */
 
 public class ReceiptArticle {
-    private String RawName;
     private double Quantity;
     private String article_label;
     private double cash;
@@ -14,15 +13,7 @@ public class ReceiptArticle {
     public ReceiptArticle() {
         this.Article = new Article();
     }
-
-    public String getRawName() {
-        return RawName;
-    }
-
-    public void setRawName(String rawName) {
-        RawName = rawName;
-    }
-
+    
     public double getQuantity() {
         return Quantity;
     }
@@ -57,5 +48,9 @@ public class ReceiptArticle {
 
     public double getAbsoluteSugar(){
         return Quantity * Article.getAbsoluteSugar();
+    }
+
+    public void findArticle(){
+
     }
 }

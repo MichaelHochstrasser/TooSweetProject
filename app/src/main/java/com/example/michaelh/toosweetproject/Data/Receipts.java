@@ -27,7 +27,7 @@ public class Receipts {
 
     public Integer getReceipts_position(String TransactionNumber){
         for (int i = 0; i < Receipts.size(); i++) {
-            if (Receipts.get(i).getTransactionNumber() == TransactionNumber){
+            if (Receipts.get(i).getTransactionNumber().equals(TransactionNumber)){
                 return i;
             }
         }
@@ -41,7 +41,7 @@ public class Receipts {
         CSVFile csvFile = new CSVFile(inputStream);
         List scoreList = csvFile.read();
 
-        for (int i = 0; i < scoreList.size(); i++) {
+        for (int i = 1; i < scoreList.size(); i++) {
             List<String> row = (List<String>) scoreList.get(i);
             //Log.i("CSV", row.get(0).toString());
 
