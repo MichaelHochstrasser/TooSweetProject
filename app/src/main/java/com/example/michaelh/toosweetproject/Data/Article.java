@@ -9,11 +9,18 @@ import java.io.Serializable;
 public class Article implements Serializable {
     private String Name;
     private int BarCode;
-    private float Quantity; // Amount of this product, (i.e. kg for fruits, int for products)
-    private float SugarPerHundert;
+    private double Quantity; // Amount of this product, (i.e. kg for fruits, int for products)
+    private double SugarPerHundert;
 
-    public Article()  {
+    public Article(String name, int barCode, double quantity, double sugarPerHundert) {
+        Name = name;
+        BarCode = barCode;
+        Quantity = quantity;
+        SugarPerHundert = sugarPerHundert;
     }
+
+
+
 
     public String getName() {
         return Name;
@@ -31,7 +38,7 @@ public class Article implements Serializable {
         BarCode = barCode;
     }
 
-    public float getQuantity() {
+    public double getQuantity() {
         return Quantity;
     }
 
@@ -39,7 +46,7 @@ public class Article implements Serializable {
         Quantity = quantity;
     }
 
-    public float getSugarPerHundert() {
+    public double getSugarPerHundert() {
         return SugarPerHundert;
     }
 
@@ -47,7 +54,7 @@ public class Article implements Serializable {
         SugarPerHundert = sugarPerHundert;
     }
 
-    public float getAbsoluteSugar(){
+    public double getAbsoluteSugar(){
         return Quantity * SugarPerHundert / 100;
 
     }
