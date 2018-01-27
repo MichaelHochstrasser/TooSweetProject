@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
     ListView listProducts;
     ArrayAdapter arrayAdapter;
-    Button btnRefresh;
+    ImageButton btnRefresh;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -63,7 +64,7 @@ public class ReceiptActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", 10);
         toast.show();
 
-        btnRefresh = (Button)findViewById(R.id.btnRefresh);
+        btnRefresh = (ImageButton)findViewById(R.id.btnRefresh);
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
