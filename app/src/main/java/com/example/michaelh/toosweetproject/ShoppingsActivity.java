@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.example.michaelh.toosweetproject.Data.Receipts;
 
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity {
+public class ShoppingsActivity extends AppCompatActivity {
 
     ListView listReceipts;
     ArrayAdapter arrayAdapter;
@@ -29,22 +30,22 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent myIntent = new Intent(MainActivity.this, MainActivity.class);
+                    Intent myIntent = new Intent(ShoppingsActivity.this, MainActivity.class);
                     startActivity(myIntent);
 
                     return true;
                 case R.id.navigation_shoppings:
-                    Intent shoppingIntent = new Intent(MainActivity.this, OverviewActivity.class);
+                    Intent shoppingIntent = new Intent(ShoppingsActivity.this, ShoppingsActivity.class);
                     startActivity(shoppingIntent);
                     //mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_overview:
-                    Intent overviewIntent = new Intent(MainActivity.this, OverviewActivity.class);
+                    Intent overviewIntent = new Intent(ShoppingsActivity.this, OverviewActivity.class);
                     startActivity(overviewIntent);
                     //mTextMessage.setText(R.string.title_notifications);
                     return true;
                 case R.id.navigation_profil:
-                    Intent profilIntent = new Intent(MainActivity.this, OverviewActivity.class);
+                    Intent profilIntent = new Intent(ShoppingsActivity.this, ProfilActivity.class);
                     startActivity(profilIntent);
                     //mTextMessage.setText(R.string.title_notifications);
                     return true;
