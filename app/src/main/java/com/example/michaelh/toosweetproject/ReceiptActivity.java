@@ -64,7 +64,7 @@ public class ReceiptActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", 10);
         toast.show();
 
-        btnRefresh = (ImageButton)findViewById(R.id.btnRefresh);
+        btnRefresh = (ImageButton)findViewById(R.id.imgBotRefresh);
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
