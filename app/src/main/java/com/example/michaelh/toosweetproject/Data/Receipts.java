@@ -51,8 +51,8 @@ public class Receipts {
             String StoreName = row.get(2);
             String TransactionNumber = row.get(4);
             String article_label = row.get(5);
-            String quantity = row.get(6);
-            String cash = row.get(8);
+            Double quantity = Double.parseDouble(row.get(6));
+            Double cash = Double.parseDouble(row.get(8));
 
             //Create new Receipts, if not exist
             if (getReceipts_position(TransactionNumber) == -1) {
@@ -60,12 +60,26 @@ public class Receipts {
                 this.Receipts.add(newReceipt);
             }
 
-            //Add Article
-            Article newArticle = new Article();
+            //Create new ReceiptArticle
+            ReceiptArticle receipt_article = new ReceiptArticle();
+            receipt_article.setArticle_label(article_label);
+            receipt_article.setQuantity(quantity);
+            receipt_article.setCash(cash);
+
+            //Add ReceiptArticle
             Integer pos = getReceipts_position(TransactionNumber);
+            this.Receipts.get(pos).getReceiptArticles().add(receipt_article);
+
             //this.Receipts.getReceiptArticles.get(pos).add()
 
-
         }
+    }
+
+    public List<String> toArray(){
+        List<String> arr = new ArrayList<>();
+        for (int i = 0; i < Receipts.size(); i++) {
+            arr.add("Einkauf vom " + Receipts.get(i).getDate() + " in " + Receipts.get(i).getStoreName());
+        }
+        return arr;
     }
 }

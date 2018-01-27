@@ -5,45 +5,48 @@ package com.example.michaelh.toosweetproject.Data;
  */
 
 public class Article {
-    private String mName;
-    private int mBarCode;
-    private float mQuantity; // Amount of this product, (i.e. kg for fruits, int for products)
-    private float mSugarPerHundert;
+    private String Name;
+    private int BarCode;
+    private float Quantity; // Amount of this product, (i.e. kg for fruits, int for products)
+    private float SugarPerHundert;
 
-    public String getmName() {
-        return mName;
+    public Article() {
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public String getName() {
+        return Name;
     }
 
-    public int getmBarCode() {
-        return mBarCode;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public void setmBarCode(int mBarCode) {
-        this.mBarCode = mBarCode;
+    public int getBarCode() {
+        return BarCode;
     }
 
-    public float getmQuantity() {
-        return mQuantity;
+    public void setBarCode(int barCode) {
+        BarCode = barCode;
     }
 
-    public void setmQuantity(int mQuantity) {
-        this.mQuantity = mQuantity;
+    public float getQuantity() {
+        return Quantity;
     }
 
-    public float getMsugar_per_hundert() {
-        return mSugarPerHundert;
+    public void setQuantity(float quantity) {
+        Quantity = quantity;
     }
 
-    public void setMsugar_per_hundert(int msugar_per_hundert) {
-        this.mSugarPerHundert = msugar_per_hundert;
+    public float getSugarPerHundert() {
+        return SugarPerHundert;
+    }
+
+    public void setSugarPerHundert(float sugarPerHundert) {
+        SugarPerHundert = sugarPerHundert;
     }
 
     public float getAbsoluteSugar(){
-        return mQuantity * mSugarPerHundert / 100;
+        return Quantity * SugarPerHundert / 100;
 
     }
 }

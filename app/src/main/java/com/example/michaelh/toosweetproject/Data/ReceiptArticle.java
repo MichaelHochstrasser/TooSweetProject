@@ -5,29 +5,57 @@ package com.example.michaelh.toosweetproject.Data;
  */
 
 public class ReceiptArticle {
-    private String mRawName;
-    private double mQuantity;
-    private  Article mArticle;
+    private String RawName;
+    private double Quantity;
+    private String article_label;
+    private double cash;
+    private  Article Article;
 
-
-    public String getmRawName() {
-        return mRawName;
+    public ReceiptArticle() {
+        this.Article = new Article();
     }
 
-    public void setmRawName(String mRawName) {
-        this.mRawName = mRawName;
+    public String getRawName() {
+        return RawName;
     }
 
-    public double getmQuantity() {
-        return mQuantity;
+    public void setRawName(String rawName) {
+        RawName = rawName;
     }
 
-    public void setmQuantity(double mQuantity) {
-        this.mQuantity = mQuantity;
+    public double getQuantity() {
+        return Quantity;
     }
 
+    public void setQuantity(double quantity) {
+        Quantity = quantity;
+    }
+
+    public com.example.michaelh.toosweetproject.Data.Article getArticle() {
+        return Article;
+    }
+
+    public void setArticle(com.example.michaelh.toosweetproject.Data.Article article) {
+        Article = article;
+    }
+
+    public String getArticle_label() {
+        return article_label;
+    }
+
+    public void setArticle_label(String article_label) {
+        this.article_label = article_label;
+    }
+
+    public double getCash() {
+        return cash;
+    }
+
+    public void setCash(double cash) {
+        this.cash = cash;
+    }
 
     public double getAbsoluteSugar(){
-        return mQuantity * mArticle.getAbsoluteSugar();
+        return Quantity * Article.getAbsoluteSugar();
     }
 }

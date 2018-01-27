@@ -70,8 +70,9 @@ public class Receipt {
             absoluteTotalSugar += ReceiptArticles.get(i).getAbsoluteSugar();
         }
         return absoluteTotalSugar;
+    }
 
-
-
+    public void addReceiptArticle(ReceiptArticle receiptArticle){
+        this.ReceiptArticles.add(receiptArticle);
     }
 }
