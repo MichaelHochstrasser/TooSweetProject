@@ -26,12 +26,12 @@ public class ProfilActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_shoppings:
-                    Intent shoppingIntent = new Intent(ProfilActivity.this, ProfilActivity.class);
+                    Intent shoppingIntent = new Intent(ProfilActivity.this, ShoppingsActivity.class);
                     startActivity(shoppingIntent);
                     //mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_overview:
-                    Intent overviewIntent = new Intent(ProfilActivity.this, ProfilActivity.class);
+                    Intent overviewIntent = new Intent(ProfilActivity.this, OverviewActivity.class);
                     startActivity(overviewIntent);
                     //mTextMessage.setText(R.string.title_notifications);
                     return true;

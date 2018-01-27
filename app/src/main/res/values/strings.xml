@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TooSweetProject</string>
+    <string name="app_name">TooSweet</string>
     <string name="title_home">My Home Title</string>
     <string name="title_notifications">Notification</string>
     <string name="title_dashboard">Dashboard</string>
