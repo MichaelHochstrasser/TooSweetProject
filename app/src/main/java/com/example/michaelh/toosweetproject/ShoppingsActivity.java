@@ -82,10 +82,10 @@ public class ShoppingsActivity extends AppCompatActivity {
 
         //Load first Article
 
-        for(int i=0; i<receipts.getNumberOfReceipts(); i++){
-            for(int j=0; j<receipts.getReceipts().get(i).getNumberOfReceiptArticles(); j++){
-                    receipts.getReceipts().get(i).getReceiptArticles().get(0).findArticleFromFoodrepo();
-        }}
+        //for(int i=0; i<receipts.getNumberOfReceipts(); i++){
+        //    for(int j=0; j<receipts.getReceipts().get(i).getNumberOfReceiptArticles(); j++){
+        //            receipts.getReceipts().get(i).getReceiptArticles().get(0).findArticleFromFoodrepo();
+        //}}
 
 
 
