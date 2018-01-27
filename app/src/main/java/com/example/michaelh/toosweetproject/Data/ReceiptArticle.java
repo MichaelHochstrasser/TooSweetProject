@@ -66,11 +66,11 @@ public class ReceiptArticle {
     public void findArticleFromFoodrepo(){
 
         String search = this.getRawArticle_label().toLowerCase().replace(" ","+");
-
+        search = "Tomate+arom";
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         String url ="https://produkte.migros.ch/sortiment?q=" + search;
-
+        Log.i("Volley","URL: " + url);
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -78,7 +78,8 @@ public class ReceiptArticle {
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         Log.i("Volley","Response is: "+ response);
-                        Integer indx = response.indexOf("mui-js-product-list clearfix");
+                        //Html html = Html.fromHtml(response);
+                        Integer indx = response.indexOf("mui-js-product-list");
                         if (indx==-1){
                             //Product not found
                             Log.i("Volley","Product not found");
