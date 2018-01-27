@@ -25,12 +25,21 @@
         android:id="@+id/listReceipts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtShoppings"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="13dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btnAllShoppings"
         android:paddingLeft="5dp"
         android:paddingRight="5dp" />
+
+    <Button
+        android:id="@+id/btnAllShoppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtShoppings"
+        android:layout_marginStart="19dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="all Shoppings" />
 </RelativeLayout>
 
 <android.support.design.widget.BottomNavigationView
