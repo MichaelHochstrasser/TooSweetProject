@@ -1,5 +1,7 @@
 package com.example.michaelh.toosweetproject.Data;
 
+import android.content.Context;
+
 import com.example.michaelh.toosweetproject.CSVFile;
 
 import java.io.InputStream;
@@ -12,9 +14,10 @@ import java.util.List;
 
 public class Receipts {
     private List<Receipt> Receipts;
-
-    public Receipts() {
+    private Context context;
+    public Receipts(Context context) {
         Receipts = new ArrayList();
+        this.context = context;
     }
 
     public List<Receipt> getReceipts() {
@@ -61,7 +64,7 @@ public class Receipts {
             }
 
             //Create new ReceiptArticle
-            ReceiptArticle receipt_article = new ReceiptArticle();
+            ReceiptArticle receipt_article = new ReceiptArticle(context);
             receipt_article.setRawArticle_label(article_label);
             receipt_article.setQuantity(quantity);
             receipt_article.setCash(cash);
