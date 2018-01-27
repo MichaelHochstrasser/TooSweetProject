@@ -62,7 +62,7 @@ public class Receipts {
 
             //Create new ReceiptArticle
             ReceiptArticle receipt_article = new ReceiptArticle();
-            receipt_article.setArticle_label(article_label);
+            receipt_article.setRawArticle_label(article_label);
             receipt_article.setQuantity(quantity);
             receipt_article.setCash(cash);
 

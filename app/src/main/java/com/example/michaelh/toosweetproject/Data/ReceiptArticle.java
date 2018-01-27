@@ -6,14 +6,14 @@ package com.example.michaelh.toosweetproject.Data;
 
 public class ReceiptArticle {
     private double Quantity;
-    private String article_label;
+    private String rawArticle_label;
     private double cash;
     private  Article Article;
 
     public ReceiptArticle() {
         this.Article = new Article();
     }
-    
+
     public double getQuantity() {
         return Quantity;
     }
@@ -30,12 +30,12 @@ public class ReceiptArticle {
         Article = article;
     }
 
-    public String getArticle_label() {
-        return article_label;
+    public String getRawArticle_label() {
+        return rawArticle_label;
     }
 
-    public void setArticle_label(String article_label) {
-        this.article_label = article_label;
+    public void setRawArticle_label(String rawArticle_label) {
+        this.rawArticle_label = rawArticle_label;
     }
 
     public double getCash() {
@@ -50,7 +50,7 @@ public class ReceiptArticle {
         return Quantity * Article.getAbsoluteSugar();
     }
 
-    public void findArticle(){
+    public void findArticleFromMigros(){
 
     }
 }

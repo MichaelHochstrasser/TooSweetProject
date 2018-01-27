@@ -3,8 +3,11 @@ package com.example.michaelh.toosweetproject;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.michaelh.toosweetproject.Data.Receipts;
 
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         listReceipts = (ListView) findViewById(R.id.listReceipts);
 
         //Load CSV
-        Receipts receipts = new Receipts();
+        final Receipts receipts = new Receipts();
         InputStream inputStream = getResources().openRawResource(R.raw.receipts);
         receipts.loadCSV(inputStream);
 
@@ -33,5 +36,11 @@ public class MainActivity extends AppCompatActivity {
         Parcelable state = listReceipts.onSaveInstanceState();
         listReceipts.setAdapter(arrayAdapter);
         listReceipts.onRestoreInstanceState(state);
+        listReceipts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
