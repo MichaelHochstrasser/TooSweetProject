@@ -37,12 +37,12 @@ public class ReceiptArticle implements Serializable {
         Quantity = quantity;
     }
 
-    public com.example.michaelh.toosweetproject.Data.Article getArticle() {
+    public Article getArticle() {
         return article;
     }
 
-    public void setArticle(com.example.michaelh.toosweetproject.Data.Article article) {
-        article = article;
+    public void setArticle(Article article) {
+        this.article = article;
     }
 
     public String getRawArticle_label() {
