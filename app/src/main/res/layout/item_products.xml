@@ -17,8 +17,8 @@
         android:id="@+id/txtAlternativeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgAlternative"
-        android:layout_marginTop="14dp"
+        android:layout_alignBottom="@+id/imgAlternative"
+        android:layout_marginBottom="14dp"
         android:layout_toEndOf="@+id/imgAlternative"
         android:text="Product Name" />
 

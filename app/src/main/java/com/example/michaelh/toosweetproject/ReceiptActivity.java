@@ -2,6 +2,7 @@ package com.example.michaelh.toosweetproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +10,15 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
+
+import java.io.InputStream;
+import java.util.List;
 
 public class ReceiptActivity extends AppCompatActivity {
 
-    ListView listReceipts;
+    ListView listProducts;
     ArrayAdapter arrayAdapter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -53,9 +58,24 @@ public class ReceiptActivity extends AppCompatActivity {
         setContentView(R.layout.receipt);
 
         Intent intent = this.getIntent();
-        Bundle bundle = intent.getExtras();
+        //Bundle bundle = intent.getExtras();
+        //Receipts receipts = (Receipts) bundle.getSerializable("receipts");
+        Bundle b = getIntent().getExtras();
 
-        Receipts receipts= (Receipts) bundle.getSerializable("receipts");
-        
+        Receipts receipts = new Receipts(getApplicationContext());
+        InputStream inputStream = getResources().openRawResource(R.raw.receipts);
+        receipts.loadCSV(inputStream);
+
+        Integer item = b.getInt("item");
+        listProducts = (ListView) findViewById(R.id.listProducts);
+        arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.getReceipts().get(item).toArray());
+        Parcelable state = listProducts.onSaveInstanceState();
+        listProducts.setAdapter(arrayAdapter);
+        listProducts.onRestoreInstanceState(state);
+
+
+        List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
+        arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
+        listProducts.setAdapter(arrayAdapter);
     }
 }

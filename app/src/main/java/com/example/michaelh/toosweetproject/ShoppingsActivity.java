@@ -83,9 +83,7 @@ public class ShoppingsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("value", receipts);
-                myIntent.putExtras(bundle);
+                myIntent.putExtra("item",position);
                 startActivity(myIntent);
 
             }

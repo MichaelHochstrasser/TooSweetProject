@@ -101,4 +101,5 @@ public class ReceiptArticle implements Serializable {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
+
 }
