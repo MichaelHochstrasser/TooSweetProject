@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtAlternativeName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="15dp"
+        android:text="Alternative Name" />
+
+    <ImageView
+        android:id="@+id/imgAlternative2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtAlternativeName2"
+        android:layout_below="@+id/txtAlternativeName2"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="36dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/txtAltSug100g2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtAltSugReduction2"
+        android:layout_alignBottom="@+id/txtAltSugReduction2"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/txtAlternativeName2"
+        android:text="Sugar 100g" />
+
+    <TextView
+        android:id="@+id/txtSugtotAlt2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtAltSug100g2"
+        android:layout_alignBottom="@+id/txtAltSug100g2"
+        android:layout_marginStart="42dp"
+        android:layout_toEndOf="@+id/txtAltSug100g2"
+        android:text="total Sugar" />
+
+    <TextView
+        android:id="@+id/txtAltSugReduction2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgAlternative2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="37dp"
+        android:text="Sugar Reduction %" />
+</RelativeLayout>
