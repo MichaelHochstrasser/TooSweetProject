@@ -70,11 +70,16 @@ public class Receipts {
             Integer pos = getReceipts_position(TransactionNumber);
             this.Receipts.get(pos).getReceiptArticles().add(receipt_article);
 
-
-
             //this.Receipts.getReceiptArticles.get(pos).add()
 
-
         }
+    }
+
+    public List<String> toArray(){
+        List<String> arr = new ArrayList<>();
+        for (int i = 0; i < Receipts.size(); i++) {
+            arr.add("Einkauf vom " + Receipts.get(i).getDate() + " in " + Receipts.get(i).getStoreName());
+        }
+        return arr;
     }
 }
