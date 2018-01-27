@@ -67,12 +67,18 @@ public class ReceiptActivity extends AppCompatActivity {
         receipts.loadCSV(inputStream);
 
         Integer item = b.getInt("item");
+
         listProducts = (ListView) findViewById(R.id.listProducts);
-        arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.getReceipts().get(item).toArray());
+
+        if (item>-1) {
+            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getReceipts().get(item).toArray());
+        } else {
+            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getAllReceiptArticle());
+        }
+
         Parcelable state = listProducts.onSaveInstanceState();
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
-
 
         List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
         arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());

@@ -74,7 +74,7 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
         lastPosition = position;*/
 
         viewHolder.txtAlternativeName.setText(receiptArticle.getRawArticle_label());
-        viewHolder.txtSugtotAlt.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
+        viewHolder.txtSugtotAlt.setText("");
         viewHolder.txtAmount.setText(Double.toString(receiptArticle.getQuantity()));
         viewHolder.txtReduction_100g.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
         // Return the completed view to render on screen
