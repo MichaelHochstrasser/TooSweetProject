@@ -76,4 +76,12 @@ public class Receipt implements Serializable {
     public void addReceiptArticle(ReceiptArticle receiptArticle){
         this.ReceiptArticles.add(receiptArticle);
     }
+
+    public List<String> toArray(){
+        List<String> arr = new ArrayList<>();
+        for (int i = 0; i < ReceiptArticles.size(); i++) {
+            arr.add(ReceiptArticles.get(i).getRawArticle_label());
+        }
+        return arr;
+    }
 }

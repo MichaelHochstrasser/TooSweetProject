@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.michaelh.toosweetproject.Data.Receipts;
 
@@ -21,6 +21,7 @@ public class ShoppingsActivity extends AppCompatActivity {
 
     ListView listReceipts;
     ArrayAdapter arrayAdapter;
+    Button btnAll;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,6 +61,15 @@ public class ShoppingsActivity extends AppCompatActivity {
 
         //Load UI
         listReceipts = (ListView) findViewById(R.id.listReceipts);
+        btnAll = (Button)findViewById(R.id.btnAllShoppings);
+        btnAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
+                myIntent.putExtra("item","-1");
+                startActivity(myIntent);
+            }
+        });
 
         //Load CSV
         final Receipts receipts = new Receipts(getApplicationContext());
@@ -81,11 +91,9 @@ public class ShoppingsActivity extends AppCompatActivity {
         listReceipts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("value", receipts);
-                myIntent.putExtras(bundle);
+                myIntent.putExtra("item",position);
                 startActivity(myIntent);
 
             }

@@ -88,5 +88,13 @@ public class Receipts implements Serializable {
         return arr;
     }
 
+    public List<ReceiptArticle> getAllReceiptArticle(){
+        List<ReceiptArticle> receiptArticles = new ArrayList<>();
+        for (int i = 0; i < Receipts.size(); i++) {
+            receiptArticles.addAll(Receipts.get(i).getReceiptArticles());
+        }
+        return receiptArticles;
+    }
+
 
 }
