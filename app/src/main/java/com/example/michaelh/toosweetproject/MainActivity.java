@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         listReceipts = (ListView) findViewById(R.id.listReceipts);
 
         //Load CSV
-        final Receipts receipts = new Receipts();
+        final Receipts receipts = new Receipts(getApplicationContext());
         InputStream inputStream = getResources().openRawResource(R.raw.receipts);
         receipts.loadCSV(inputStream);
 
