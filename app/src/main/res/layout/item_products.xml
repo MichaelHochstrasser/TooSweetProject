@@ -14,7 +14,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/txtMostProd"
+        android:id="@+id/txtProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgProduct"
@@ -23,20 +23,20 @@
         android:text="Product Name" />
 
     <ProgressBar
-        android:id="@+id/progressBarSugtotMost"
+        android:id="@+id/progressBarSugtot"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtMostProd"
+        android:layout_alignBottom="@+id/txtProduct"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="31dp" />
 
     <TextView
-        android:id="@+id/txtMostSugtot"
+        android:id="@+id/txtSugtot1"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/progressBarSugtotMost"
+        android:layout_alignTop="@+id/progressBarSugtot"
         android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/txtMostProd"
+        android:layout_toEndOf="@+id/txtProduct"
         android:text="Sugar total [g]" />
 </RelativeLayout>
