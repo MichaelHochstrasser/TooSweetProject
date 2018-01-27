@@ -22,7 +22,7 @@ public class ShoppingsActivity extends AppCompatActivity {
     ListView listReceipts;
     ArrayAdapter arrayAdapter;
     Button btnAll;
-
+    private String testVariable = "HalliHallo";
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -66,7 +66,7 @@ public class ShoppingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
-                myIntent.putExtra("item","-1");
+                myIntent.putExtra("testVariable", testVariable);
                 startActivity(myIntent);
             }
         });
@@ -81,7 +81,13 @@ public class ShoppingsActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //Load first Article
-        receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
+
+        for(int i=0; i<receipts.getNumberOfReceipts(); i++){
+            for(int j=0; j<receipts.getReceipts().get(i).getNumberOfReceiptArticles(); j++){
+                    receipts.getReceipts().get(i).getReceiptArticles().get(0).findArticleFromFoodrepo();
+        }}
+
+
 
         //Show
         arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());

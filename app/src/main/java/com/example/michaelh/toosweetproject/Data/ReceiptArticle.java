@@ -38,11 +38,11 @@ public class ReceiptArticle implements Serializable {
     }
 
     public com.example.michaelh.toosweetproject.Data.Article getArticle() {
-        return article;
+        return this.article;
     }
 
     public void setArticle(com.example.michaelh.toosweetproject.Data.Article article) {
-        article = article;
+        this.article = article;
     }
 
     public String getRawArticle_label() {
@@ -93,7 +93,7 @@ public class ReceiptArticle implements Serializable {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         //String url ="https://produkte.migros.ch/sortiment?q=" + search;
-        String url = "https://produkte.migros.ch/m-budget-tomaten";
+        String url = "https://produkte.migros.ch/" + search;
         Log.i("Volley","URL: " + url);
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
