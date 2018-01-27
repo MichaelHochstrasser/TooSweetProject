@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         InputStream inputStream = getResources().openRawResource(R.raw.receipts);
         receipts.loadCSV(inputStream);
 
+        //Load first Article
+        receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
+
         //Show
         arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());
         Parcelable state = listReceipts.onSaveInstanceState();

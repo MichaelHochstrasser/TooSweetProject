@@ -1,6 +1,7 @@
 package com.example.michaelh.toosweetproject.Data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,9 +64,12 @@ public class ReceiptArticle {
     }
 
     public void findArticleFromFoodrepo(){
+
+        String search = this.getRawArticle_label().toLowerCase().replace(" ","+");
+
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="http://www.google.com";
+        String url ="https://produkte.migros.ch/sortiment?q=" + search;
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -73,12 +77,22 @@ public class ReceiptArticle {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        //mTextView.setText("Response is: "+ response.substring(0,500));
+                        Log.i("Volley","Response is: "+ response);
+                        Integer indx = response.indexOf("mui-js-product-list clearfix");
+                        if (indx==-1){
+                            //Product not found
+                            Log.i("Volley","Product not found");
+                        } else {
+                            response = response.substring(indx);
+                            response = response.substring(response.indexOf("href"));
+                            Log.i("Volley","Response is: "+ response);
+                        }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //mTextView.setText("That didn't work!");
+                Log.w("Volley","That didn't work!");
             }
         });
         // Add the request to the RequestQueue.

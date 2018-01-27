@@ -69,10 +69,11 @@ public class Receipts {
             receipt_article.setQuantity(quantity);
             receipt_article.setCash(cash);
 
+            //receipt_article.findArticleFromFoodrepo();
+
             //Add ReceiptArticle
             Integer pos = getReceipts_position(TransactionNumber);
             this.Receipts.get(pos).getReceiptArticles().add(receipt_article);
-
             //this.Receipts.getReceiptArticles.get(pos).add()
 
         }
