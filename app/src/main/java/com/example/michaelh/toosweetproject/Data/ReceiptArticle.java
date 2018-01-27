@@ -1,5 +1,15 @@
 package com.example.michaelh.toosweetproject.Data;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 /**
  * Created by gabri on 27.01.2018.
  */
@@ -9,9 +19,12 @@ public class ReceiptArticle {
     private String rawArticle_label;
     private double cash;
     private  Article Article;
+    Context context;
 
-    public ReceiptArticle() {
+
+    public ReceiptArticle(Context context) {
         this.Article = new Article();
+        this.context = context;
     }
 
     public double getQuantity() {
@@ -50,7 +63,39 @@ public class ReceiptArticle {
         return Quantity * Article.getAbsoluteSugar();
     }
 
-    public void findArticleFromMigros(){
+    public void findArticleFromFoodrepo(){
 
+        String search = this.getRawArticle_label().toLowerCase().replace(" ","+");
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(context);
+        String url ="https://produkte.migros.ch/sortiment?q=" + search;
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        Log.i("Volley","Response is: "+ response);
+                        Integer indx = response.indexOf("mui-js-product-list clearfix");
+                        if (indx==-1){
+                            //Product not found
+                            Log.i("Volley","Product not found");
+                        } else {
+                            response = response.substring(indx);
+                            response = response.substring(response.indexOf("href"));
+                            Log.i("Volley","Response is: "+ response);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.w("Volley","That didn't work!");
+            }
+        });
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 }
