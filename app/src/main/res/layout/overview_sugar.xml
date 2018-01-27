@@ -29,4 +29,13 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="213dp" />
 
+    <TextView
+        android:id="@+id/txtTab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount   Product         Sugar[g]/100g   Sugar[g]    ChartSugar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="181dp" />
+
 </android.support.constraint.ConstraintLayout>
