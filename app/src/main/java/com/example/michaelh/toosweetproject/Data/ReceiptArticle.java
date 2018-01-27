@@ -20,12 +20,12 @@ public class ReceiptArticle implements Serializable {
     private double Quantity;
     private String rawArticle_label;
     private double cash;
-    private  Article Article;
+    private  Article article;
     Context context;
 
 
     public ReceiptArticle(Context context) {
-        this.Article = new Article();
+        this.article = null;
         this.context = context;
     }
 
@@ -38,11 +38,11 @@ public class ReceiptArticle implements Serializable {
     }
 
     public com.example.michaelh.toosweetproject.Data.Article getArticle() {
-        return Article;
+        return article;
     }
 
     public void setArticle(com.example.michaelh.toosweetproject.Data.Article article) {
-        Article = article;
+        article = article;
     }
 
     public String getRawArticle_label() {
@@ -62,19 +62,38 @@ public class ReceiptArticle implements Serializable {
     }
 
     public double getAbsoluteSugar(){
-        if (Article==null){
+        if (article==null){
             return 0.0;
         }
-        return Quantity * Article.getAbsoluteSugar();
+        return Quantity * article.getAbsoluteSugar();
     }
 
+    private double parseSugar(String response){
+        int sugar_index = response.indexOf("davon Zucker");
+        String staticElement = "davon Zucker\n" +
+                "                    </td>\n" +
+                "                                    <td>\n" +
+                "                        ";
+
+
+        sugar_index = sugar_index + staticElement.length();
+        String sugarSubstring = response.substring(sugar_index);
+
+        int gramm_index = sugarSubstring.indexOf('g');
+        String sugarString = sugarSubstring.substring(0, gramm_index);
+        Log.i("Volley","Sugar index  is: "+ sugar_index);
+        Log.i("Volley","Sugar index  is: "+ response.indexOf("davon Zucker"));
+        Log.i("Volley","Sugar: "+ sugarString);
+        double sugar = Double.parseDouble(sugarString);
+        return sugar;
+    }
     public void findArticleFromFoodrepo(){
 
-        String search = this.getRawArticle_label().toLowerCase().replace(" ","+");
-        search = "Tomate+arom";
+        String search = this.getRawArticle_label().toLowerCase().replace(" ","-");
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="https://produkte.migros.ch/sortiment?q=" + search;
+        //String url ="https://produkte.migros.ch/sortiment?q=" + search;
+        String url = "https://produkte.migros.ch/m-budget-tomaten";
         Log.i("Volley","URL: " + url);
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -83,15 +102,21 @@ public class ReceiptArticle implements Serializable {
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         Log.i("Volley","Response is: "+ response);
+                        // TODO: Switch to dom-parser
+
                         //Html html = Html.fromHtml(response);
                         Integer indx = response.indexOf("href");
                         if (indx==-1){
                             //Product not found
                             Log.i("Volley","Product not found");
                         } else {
-                            response = response.substring(indx);
-                            response = response.substring(response.indexOf("href"));
-                            Log.i("Volley","Response is: "+ response);
+                            //response = response.substring(indx);
+                            //response = response.substring(response.indexOf("href"));
+                            //Log.i("Volley","Response is: "+ response);
+                            Double sugar = parseSugar(response);
+                            int barcode = -1;
+                            Article article = new Article(getRawArticle_label(),barcode,getQuantity(), sugar); //Fix per 100
+                            setArticle(article);
                         }
 
                     }
