@@ -71,17 +71,19 @@ public class ReceiptActivity extends AppCompatActivity {
         listProducts = (ListView) findViewById(R.id.listProducts);
 
         if (item>-1) {
-            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getReceipts().get(item).toArray());
+            List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
+            arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
+            listProducts.setAdapter(arrayAdapter);
         } else {
-            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getAllReceiptArticle());
+            List<ReceiptArticle> receiptArticle = receipts.getAllReceiptArticle();
+            arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
+            listProducts.setAdapter(arrayAdapter);
         }
 
         Parcelable state = listProducts.onSaveInstanceState();
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
 
-        List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
-        arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
-        listProducts.setAdapter(arrayAdapter);
+
     }
 }
