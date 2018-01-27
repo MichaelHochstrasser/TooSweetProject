@@ -21,11 +21,13 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
     private static class ViewHolder {
         TextView txtAlternativeName;
         TextView txtSugtotAlt;
+        TextView txtAmount;
+        TextView txtReduction_100g;
         ImageView imgAlternative;
     }
 
     public ProductAdapter(List<ReceiptArticle> data, Context context) {
-        super(context, R.layout.item_products, data);
+        super(context, R.layout.item_product, data);
         this.dataSet = data;
         this.mContext=context;
 
@@ -54,10 +56,11 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.item_products, parent, false);
-            viewHolder.txtAlternativeName = (TextView) convertView.findViewById(R.id.txtAlternativeName);
-            viewHolder.txtSugtotAlt = (TextView) convertView.findViewById(R.id.txtSugtotAlt);
-
+            convertView = inflater.inflate(R.layout.item_product, parent, false);
+            viewHolder.txtAlternativeName = (TextView) convertView.findViewById(R.id.txtProduct1);
+            viewHolder.txtSugtotAlt = (TextView) convertView.findViewById(R.id.txtSugtot1);
+            viewHolder.txtAmount = (TextView) convertView.findViewById(R.id.txtAmount);
+            viewHolder.txtReduction_100g = (TextView) convertView.findViewById(R.id.txtReduction_100g);
             result=convertView;
 
             convertView.setTag(viewHolder);
@@ -72,6 +75,8 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
 
         viewHolder.txtAlternativeName.setText(receiptArticle.getRawArticle_label());
         viewHolder.txtSugtotAlt.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
+        viewHolder.txtAmount.setText(Double.toString(receiptArticle.getQuantity()));
+        viewHolder.txtReduction_100g.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
         // Return the completed view to render on screen
         return convertView;
     }

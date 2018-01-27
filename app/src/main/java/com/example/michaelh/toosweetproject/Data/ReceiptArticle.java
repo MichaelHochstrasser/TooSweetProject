@@ -62,6 +62,9 @@ public class ReceiptArticle implements Serializable {
     }
 
     public double getAbsoluteSugar(){
+        if (Article==null){
+            return 0.0;
+        }
         return Quantity * Article.getAbsoluteSugar();
     }
 
