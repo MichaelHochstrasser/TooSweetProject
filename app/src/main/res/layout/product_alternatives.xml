@@ -59,9 +59,17 @@
         android:id="@+id/listAlternatives"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/txtTab2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/txtTab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtAlternativeName2"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:text="Amount Product  SugarReduction[%]     Sugar[g]    ChartSugar"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 </RelativeLayout>

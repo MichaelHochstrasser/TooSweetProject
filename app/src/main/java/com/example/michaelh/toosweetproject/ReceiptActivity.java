@@ -7,7 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
     ListView listProducts;
     ArrayAdapter arrayAdapter;
+    Button btnRefresh;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,6 +63,14 @@ public class ReceiptActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", 10);
         toast.show();
 
+        btnRefresh = (Button)findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+
         Intent intent = this.getIntent();
         //Bundle bundle = intent.getExtras();
         //Receipts receipts = (Receipts) bundle.getSerializable("receipts");
@@ -74,17 +85,31 @@ public class ReceiptActivity extends AppCompatActivity {
         listProducts = (ListView) findViewById(R.id.listProducts);
 
         if (item>-1) {
-            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getReceipts().get(item).toArray());
+            List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
+            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
+            listProducts.setAdapter(arrayAdapter);
         } else {
-            arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, receipts.getAllReceiptArticle());
+            List<ReceiptArticle> receiptArticle = receipts.getAllReceiptArticle();
+            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
+            listProducts.setAdapter(arrayAdapter);
         }
 
         Parcelable state = listProducts.onSaveInstanceState();
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
 
-        List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
-        arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
-        listProducts.setAdapter(arrayAdapter);
+        //Load first Article
+        receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
+
+        /*Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                listProducts.deferNotifyDataSetChanged();
+            }
+
+        },0,3000);//Update text every second*/
+
     }
 }

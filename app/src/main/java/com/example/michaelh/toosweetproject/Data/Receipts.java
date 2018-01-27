@@ -76,7 +76,7 @@ public class Receipts implements Serializable {
 
             //Add ReceiptArticle
             Integer pos = getReceipts_position(TransactionNumber);
-            this.Receipts.get(pos).getReceiptArticles().add(receipt_article);
+            this.Receipts.get(pos).addReceiptArticle(receipt_article);
             //this.Receipts.getReceiptArticles.get(pos).add()
 
         }
@@ -93,10 +93,10 @@ public class Receipts implements Serializable {
     public List<ReceiptArticle> getAllReceiptArticle(){
         List<ReceiptArticle> receiptArticles = new ArrayList<>();
         for (int i = 0; i < Receipts.size(); i++) {
-            receiptArticles.addAll(Receipts.get(i).getReceiptArticles());
+            for (int j = 0; j < Receipts.get(i).getReceiptArticles().size(); j++) {
+                receiptArticles.add(Receipts.get(i).getReceiptArticles().get(j));
+            }
         }
         return receiptArticles;
     }
-
-
 }

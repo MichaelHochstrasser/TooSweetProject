@@ -76,6 +76,16 @@ public class Receipt implements Serializable {
     }
 
     public void addReceiptArticle(ReceiptArticle receiptArticle){
+        for (int i = 0; i < ReceiptArticles.size(); i++) {
+            if (ReceiptArticles.get(i).getRawArticle_label().equals(receiptArticle.getRawArticle_label())){
+                //Already exist
+                Double quantity = ReceiptArticles.get(i).getQuantity();
+                Double cash = ReceiptArticles.get(i).getCash();
+                ReceiptArticles.get(i).setQuantity(quantity + receiptArticle.getQuantity());
+                ReceiptArticles.get(i).setCash(cash + receiptArticle.getCash());
+                return;
+            }
+        }
         this.ReceiptArticles.add(receiptArticle);
     }
 
