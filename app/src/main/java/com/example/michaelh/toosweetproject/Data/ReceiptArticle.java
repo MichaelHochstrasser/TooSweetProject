@@ -84,7 +84,12 @@ public class ReceiptArticle implements Serializable {
         Log.i("Volley","Sugar index  is: "+ sugar_index);
         Log.i("Volley","Sugar index  is: "+ response.indexOf("davon Zucker"));
         Log.i("Volley","Sugar: "+ sugarString);
-        double sugar = Double.parseDouble(sugarString);
+        double sugar = 0.0;
+        try {
+            sugar = Double.parseDouble(sugarString);
+        } catch (Exception e){
+            Log.e("Parse",e.getMessage());
+        }
         return sugar;
     }
     public void findArticleFromFoodrepo(){
