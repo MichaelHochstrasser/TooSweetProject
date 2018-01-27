@@ -7,7 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
@@ -20,6 +22,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
     ListView listProducts;
     ArrayAdapter arrayAdapter;
+    Button btnRefresh;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,6 +60,14 @@ public class ReceiptActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receipt);
 
+        btnRefresh = (Button)findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+
         Intent intent = this.getIntent();
         //Bundle bundle = intent.getExtras();
         //Receipts receipts = (Receipts) bundle.getSerializable("receipts");
@@ -72,11 +83,11 @@ public class ReceiptActivity extends AppCompatActivity {
 
         if (item>-1) {
             List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
-            arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
+            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
             listProducts.setAdapter(arrayAdapter);
         } else {
             List<ReceiptArticle> receiptArticle = receipts.getAllReceiptArticle();
-            arrayAdapter= new ProductAdapter(receiptArticle,getApplicationContext());
+            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
             listProducts.setAdapter(arrayAdapter);
         }
 
@@ -84,6 +95,18 @@ public class ReceiptActivity extends AppCompatActivity {
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
 
+        //Load first Article
+        receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
+
+        /*Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                listProducts.deferNotifyDataSetChanged();
+            }
+
+        },0,3000);//Update text every second*/
 
     }
 }
