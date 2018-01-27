@@ -16,31 +16,20 @@
         android:id="@+id/txteditCSVup"
         android:layout_width="800dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtHome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
+        android:layout_above="@+id/imgButChart"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Please enter your CVS from your Migros Cumulus account"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-    <TextView
-        android:id="@+id/txtHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:elegantTextHeight="true"
-        android:text="Welcome to TooSweet"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
     <ImageView
         android:id="@+id/imgSugar1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_below="@+id/txteditCSVup"
-        android:layout_marginTop="14dp"
+        android:layout_below="@+id/imgLogo"
+        android:layout_marginTop="30dp"
         android:layout_toStartOf="@+id/imgButChart"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/sugar1" />
@@ -76,8 +65,8 @@
         android:id="@+id/imgButReceipt"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignStart="@+id/imgSugar1"
         android:layout_alignTop="@+id/imgButChart"
+        android:layout_toStartOf="@+id/imgButChart"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/quittungsbild" />
 
@@ -89,6 +78,15 @@
         android:layout_alignTop="@+id/imgButChart"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/profilbild" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="140dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/logo5" />
 
 </RelativeLayout>
 
