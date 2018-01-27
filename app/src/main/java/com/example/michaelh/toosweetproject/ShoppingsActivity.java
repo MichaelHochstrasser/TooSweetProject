@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,6 +82,12 @@ public class ShoppingsActivity extends AppCompatActivity {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("value", receipts);
+                myIntent.putExtras(bundle);
+                startActivity(myIntent);
+
             }
         });
     }

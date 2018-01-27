@@ -6,4 +6,5 @@
     <string name="title_activity_overview">History of Sugar Consumption</string>
     <string name="title_activity_profil">Profil</string>
     <string name="title_activity_shoppings">Shoppings</string>
+    <string name="title_activity_receipt">Receipt</string>
 </resources>

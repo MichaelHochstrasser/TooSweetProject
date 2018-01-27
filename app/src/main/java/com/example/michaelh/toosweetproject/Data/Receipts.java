@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.michaelh.toosweetproject.CSVFile;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * Created by gabri on 27.01.2018.
  */
 
-public class Receipts {
+public class Receipts implements Serializable {
     private List<Receipt> Receipts;
     private Context context;
     public Receipts(Context context) {
@@ -86,4 +87,6 @@ public class Receipts {
         }
         return arr;
     }
+
+
 }
