@@ -79,7 +79,7 @@ public class ReceiptArticle {
                         // Display the first 500 characters of the response string.
                         Log.i("Volley","Response is: "+ response);
                         //Html html = Html.fromHtml(response);
-                        Integer indx = response.indexOf("mui-js-product-list");
+                        Integer indx = response.indexOf("href");
                         if (indx==-1){
                             //Product not found
                             Log.i("Volley","Product not found");
