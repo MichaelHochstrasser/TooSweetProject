@@ -10,11 +10,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.io.Serializable;
+
 /**
  * Created by gabri on 27.01.2018.
  */
 
-public class ReceiptArticle {
+public class ReceiptArticle implements Serializable {
     private double Quantity;
     private String rawArticle_label;
     private double cash;

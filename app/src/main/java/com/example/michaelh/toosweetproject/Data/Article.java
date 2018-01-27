@@ -1,16 +1,18 @@
 package com.example.michaelh.toosweetproject.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by gabri on 27.01.2018.
  */
 
-public class Article {
+public class Article implements Serializable {
     private String Name;
     private int BarCode;
     private float Quantity; // Amount of this product, (i.e. kg for fruits, int for products)
     private float SugarPerHundert;
 
-    public Article() {
+    public Article()  {
     }
 
     public String getName() {

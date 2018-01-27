@@ -1,5 +1,6 @@
 package com.example.michaelh.toosweetproject.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by gabri on 27.01.2018.
  */
 
-public class Receipt {
+public class Receipt implements Serializable {
     // TODO: Should we change to private and use get / set instaed
     private String Date;
     private String Time;

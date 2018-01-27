@@ -2,20 +2,14 @@ package com.example.michaelh.toosweetproject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.michaelh.toosweetproject.Data.Receipts;
-
-import java.io.InputStream;
 
 public class ReceiptActivity extends AppCompatActivity {
 
@@ -57,6 +51,11 @@ public class ReceiptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receipt);
+
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+
+        Receipts receipts= (Receipts) bundle.getSerializable("receipts");
         
     }
 }
