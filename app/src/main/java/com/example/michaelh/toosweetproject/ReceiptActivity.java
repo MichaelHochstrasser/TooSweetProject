@@ -1,6 +1,7 @@
 package com.example.michaelh.toosweetproject;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -98,7 +99,9 @@ public class ReceiptActivity extends AppCompatActivity {
         listProducts.onRestoreInstanceState(state);
 
         //Load first Article
-        receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
+        //Articles
+        new modifyCar(receipts).execute();
+        //receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
 
         /*Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -110,5 +113,37 @@ public class ReceiptActivity extends AppCompatActivity {
 
         },0,3000);//Update text every second*/
 
+    }
+
+    class modifyCar extends AsyncTask<Void, Integer, Receipts> {
+        private Receipts receipts;
+
+        // a constructor so that you can pass the object and use
+        modifyCar(Receipts receipts){
+            this.receipts = receipts;
+        }
+
+        protected void onPreExecute()
+        {
+        }
+
+        protected Receipts doInBackground(Void... parms)
+        {
+            //The rest of the code using newCarAsync
+            for (int i = 0; i < receipts.getReceipts().size(); i++) {
+                for (int j = 0; j < receipts.getReceipts().get(i).getReceiptArticles().size(); j++) {
+                    receipts.getReceipts().get(i).getReceiptArticles().get(j).findArticleFromFoodrepo();
+                }
+            }
+            return receipts;
+        }
+
+        protected void onProgressUpdate()
+        {
+        }
+
+        protected void onPostExecute()
+        {
+        }
     }
 }

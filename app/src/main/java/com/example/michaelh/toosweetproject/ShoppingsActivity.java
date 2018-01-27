@@ -80,14 +80,6 @@ public class ShoppingsActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        //Load first Article
-
-        for(int i=0; i<receipts.getNumberOfReceipts(); i++){
-            for(int j=0; j<receipts.getReceipts().get(i).getNumberOfReceiptArticles(); j++){
-                    receipts.getReceipts().get(i).getReceiptArticles().get(0).findArticleFromFoodrepo();
-        }}
-
-
 
         //Show
         arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());

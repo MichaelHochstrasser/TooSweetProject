@@ -81,9 +81,9 @@ public class ReceiptArticle implements Serializable {
 
         int gramm_index = sugarSubstring.indexOf('g');
         String sugarString = sugarSubstring.substring(0, gramm_index);
-        Log.i("Volley","Sugar index  is: "+ sugar_index);
-        Log.i("Volley","Sugar index  is: "+ response.indexOf("davon Zucker"));
-        Log.i("Volley","Sugar: "+ sugarString);
+        //Log.i("Volley","Sugar index  is: "+ sugar_index);
+        //Log.i("Volley","Sugar index  is: "+ response.indexOf("davon Zucker"));
+        //Log.i("Volley","Sugar: "+ sugarString);
         double sugar = 0.0;
         try {
             sugar = Double.parseDouble(sugarString);
@@ -113,7 +113,7 @@ public class ReceiptArticle implements Serializable {
                         Integer indx = response.indexOf("href");
                         if (indx==-1){
                             //Product not found
-                            Log.i("Volley","Product not found");
+                            Log.i("Sugar","Product not found");
                         } else {
                             //response = response.substring(indx);
                             //response = response.substring(response.indexOf("href"));
@@ -121,6 +121,7 @@ public class ReceiptArticle implements Serializable {
                             Double sugar = parseSugar(response);
                             int barcode = -1;
                             Article article = new Article(getRawArticle_label(),barcode,getQuantity(), sugar); //Fix per 100
+                            Log.i("Sugar",getRawArticle_label() + ": " + sugar.toString());
                             setArticle(article);
                         }
 
