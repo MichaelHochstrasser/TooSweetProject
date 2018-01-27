@@ -60,7 +60,7 @@ public class ReceiptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receipt);
-        Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", 10);
+        Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", Toast.LENGTH_LONG);
         toast.show();
 
         btnRefresh = (Button)findViewById(R.id.btnRefresh);
