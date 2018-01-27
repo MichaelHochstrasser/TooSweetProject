@@ -32,7 +32,7 @@
         android:layout_below="@+id/txtSugtotReceipt"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="11dp"
-        android:text="Amount   Product                                     Sugar [g]   Chart Sugar"
+        android:text="Amount   Product                                     Sugar [g]   Chart"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <ImageButton
