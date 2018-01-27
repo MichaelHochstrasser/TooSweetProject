@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
@@ -60,9 +61,7 @@ public class ReceiptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receipt);
-        //Toast toast = Toast.makeText(this.getApplicationContext(), "Hi", 10);
-        //toast.show();
-
+        
         btnRefresh = (ImageButton)findViewById(R.id.imgBotRefresh);
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
