@@ -26,6 +26,9 @@
         <activity
             android:name=".ShoppingsActivity"
             android:label="@string/title_activity_shoppings"></activity>
+        <activity
+            android:name=".ReceiptActivity"
+            android:label="@string/title_activity_receipt"></activity>
     </application>
 
 </manifest>
