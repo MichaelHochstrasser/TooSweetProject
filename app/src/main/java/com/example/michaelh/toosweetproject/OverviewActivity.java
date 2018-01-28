@@ -105,7 +105,7 @@ public class OverviewActivity extends AppCompatActivity {
     }
 
     private void loadTopSugarListView(Receipts receipts, ListView listProducts){
-            List<ReceiptArticle> receiptArticle = receipts.getTopSugarProducts(5);
+            List<ReceiptArticle> receiptArticle = receipts.getReceiptAll().getTopSugarProducts(5);
             arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
             listProducts.setAdapter(arrayAdapter);
 
