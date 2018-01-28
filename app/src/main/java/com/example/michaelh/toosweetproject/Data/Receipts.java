@@ -100,6 +100,14 @@ public class Receipts implements Serializable {
         return arr;
     }
 
+    public Receipt getReceiptAll() {
+        return receiptAll;
+    }
+
+    public void setReceiptAll(Receipt receiptAll) {
+        this.receiptAll = receiptAll;
+    }
+
     public void loadReceiptAll() {
         receiptAll = new Receipt("", "-1", "Total", "-1");
 
