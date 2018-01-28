@@ -105,7 +105,8 @@ public class ReceiptActivity extends AppCompatActivity {
 
         //Load first Article
         //Articles
-        new modifyCar(receipts).execute();
+        //new modifyCar(receipts).execute();
+
         //receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
 
         /*Timer timer = new Timer();
