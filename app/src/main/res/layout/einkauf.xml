@@ -16,8 +16,6 @@
             android:id="@+id/chart2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@+id/btnAllShoppings"
-            android:layout_marginTop="0dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -26,18 +24,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/chart2"
+            android:layout_below="@+id/btnAllShoppings"
             android:paddingLeft="5dp"
             android:paddingRight="5dp" />
+
         <Button
             android:id="@+id/btnAllShoppings"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="203dp"
+            android:background="@color/Light"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="all Shoppings"
-            android:background="@color/Light"/>
+            android:text="all Shoppings" />
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
