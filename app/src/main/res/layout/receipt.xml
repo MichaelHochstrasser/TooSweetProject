@@ -30,7 +30,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:text="Total Sugar amount [g] per Shopping"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" />
 
         <TextView
             android:id="@+id/txtTabelle"
