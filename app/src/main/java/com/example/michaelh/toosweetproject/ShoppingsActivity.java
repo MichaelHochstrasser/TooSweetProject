@@ -87,7 +87,7 @@ public class ShoppingsActivity extends AppCompatActivity {
         //Sort by Date
         receipts = receipts.sortReceipts_byDate(receipts);
         // Load chart data
-        LineChart chart = (LineChart) findViewById(R.id.chart);
+        LineChart chart = (LineChart) findViewById(R.id.chart2);
         loadChart(chart,receipts);
 
         // Adds Menu listener
