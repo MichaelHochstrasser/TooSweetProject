@@ -62,7 +62,6 @@ public class OverviewActivity extends AppCompatActivity {
         List<Entry> entries = new ArrayList<Entry>();
 
         //List<Integer> yValues = new ArrayList<Integer>();
-        receipts.sortReceipts_byDate();
         /*for (int i = 0; i < receipts.getReceipts().size(); i++) {
             yValues.add((int) Math.round(receipts.getReceipts().get(i).calcTotalAmountSugar()));
         }*/
@@ -126,9 +125,9 @@ public class OverviewActivity extends AppCompatActivity {
         receipts.loadCSV(inputStream);
 
         // Load chart data
-        LineChart chart = (LineChart) findViewById(R.id.chart);
+        /*LineChart chart = (LineChart) findViewById(R.id.chart);
         loadChart(chart,receipts);
-
+*/
         loadTopSugarListView(receipts, listProducts);
 
 
