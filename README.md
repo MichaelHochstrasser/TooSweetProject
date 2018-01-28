@@ -7,7 +7,7 @@ Non-communicable diseases (NCDs) kill 40 million people each year, equivalent to
 We aim to make customer more aware of their main sugar contributor and will present them alternative products with less sugar. TooSweet is a mobile application who gives you a ranking of food by sugar content. The data are provided by uploading your Cumulus Data as CSV File to the App. In the App you see the sugar amount in gram of all receipts together and by clicking on one specific receipt you get the detailed ranking of this receipt by sugar content from high to low. You can click on one product to get more detailed information about the sugar contribution and alternative products ranked by sugar reduction (sugar content low to high). In the overview section you see a your sugar consumption/buying averaged over the last months over shoppings per week.
 
 #### Demo
-
+https://github.com/MichaelHochstrasser/TooSweetProject/blob/master/TooSweet-App.apk
 
 #### Datasets
 Product data is used by Cumulus CSV upload done by customer. The mapping with the nutritional data about the sugar content is done with the data base of www.foodrepo.org or with Nutritional data from www.migros.ch.
