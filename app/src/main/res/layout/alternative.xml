@@ -10,7 +10,8 @@
         android:layout_alignEnd="@+id/txtAltSugReduction2"
         android:layout_alignParentTop="true"
         android:layout_marginTop="102dp"
-        android:text="Alternative Name" />
+        android:text="Alternative Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" />
 
     <ImageView
         android:id="@+id/imgAlternative2"

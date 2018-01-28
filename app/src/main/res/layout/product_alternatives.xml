@@ -19,7 +19,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:text="Produkt Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" />
 
     <ImageView
         android:id="@+id/imgProduct2"
@@ -60,7 +60,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:text="Alternative Product"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" />
 
     <ListView
         android:id="@+id/listAlternatives"
