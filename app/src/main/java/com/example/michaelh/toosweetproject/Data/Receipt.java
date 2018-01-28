@@ -101,9 +101,9 @@ public class Receipt implements Serializable {
         Double total = 0.0;
         Double max = 0.0;
         for (int i = 0; i < ReceiptArticles.size(); i++) {
-            total += ReceiptArticles.get(i).getArticle().getAbsoluteSugar();
-            if (ReceiptArticles.get(i).getArticle().getAbsoluteSugar()>max){
-                max = ReceiptArticles.get(i).getArticle().getAbsoluteSugar();
+            total += ReceiptArticles.get(i).getAbsoluteSugar();
+            if (ReceiptArticles.get(i).getAbsoluteSugar()>max){
+                max = ReceiptArticles.get(i).getAbsoluteSugar();
             }
         }
         for (int i = 0; i < ReceiptArticles.size(); i++) {
