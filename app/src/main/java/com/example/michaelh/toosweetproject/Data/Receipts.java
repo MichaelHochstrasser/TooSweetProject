@@ -15,6 +15,7 @@ import java.util.List;
 
 public class Receipts implements Serializable {
     private List<Receipt> Receipts;
+    private Receipt receiptAll;
     private Context context;
     public Receipts(Context context) {
         Receipts = new ArrayList();
@@ -99,13 +100,24 @@ public class Receipts implements Serializable {
         return arr;
     }
 
-    public List<ReceiptArticle> getAllReceiptArticle(){
-        List<ReceiptArticle> receiptArticles = new ArrayList<>();
-        Double totalSugar = 0.0;
+    public void loadReceiptAll() {
+        receiptAll = new Receipt("", "-1", "Total", "-1");
+
+        for (int i = 0; i < Receipts.size(); i++) {
+            for (int j = 0; j < Receipts.get(i).getReceiptArticles().size(); j++) {
+                receiptAll.addReceiptArticle(Receipts.get(i).getReceiptArticles().get(j));
+            }
+        }
+
+        this.receiptAll.calcTotalAmountSugar();
+    }
+
+        // List<ReceiptArticle> receiptArticles = new ArrayList<>();
+        /*Double totalSugar = 0.0;
         Double max = 0.0;
         for (int i = 0; i < Receipts.size(); i++) {
             for (int j = 0; j < Receipts.get(i).getReceiptArticles().size(); j++) {
-                receiptArticles.add(Receipts.get(i).getReceiptArticles().get(j));
+                receiptAll.addReceiptArticle(Receipts.get(i).getReceiptArticles().get(j));
                 totalSugar += Receipts.get(i).getReceiptArticles().get(j).getAbsoluteSugar();
                 if (Receipts.get(i).getReceiptArticles().get(j).getAbsoluteSugar()>max){
                     max = Receipts.get(i).getReceiptArticles().get(j).getAbsoluteSugar();
@@ -119,24 +131,5 @@ public class Receipts implements Serializable {
                 Receipts.get(i).getReceiptArticles().get(j).setMaxSugarOfReceipt(max);
             }
         }
-        return receiptArticles;
-    }
-
-    public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
-
-        return receiptArticles;
-    }
-    public List<ReceiptArticle> getTopSugarProducts(int numberOfElements){
-        List<ReceiptArticle> receiptArticles = getAllReceiptArticle();
-        receiptArticles = sortReceiptArticles(receiptArticles);
-
-        List<ReceiptArticle> out = new ArrayList<>();
-        for(int i = 0; i < numberOfElements; i++) {
-            out.add(receiptArticles.get(i));
-        }
-
-        return out;
-
-
-    }
+        return receiptArticles;*/
 }
