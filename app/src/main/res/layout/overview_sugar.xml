@@ -9,21 +9,23 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent"/>
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
         android:layout_height="200dp"
-        />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
     <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="220dp"
         android:text="Top sugar contributer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,14 +41,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-    <TextView
-        android:id="@+id/txtTab3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Amount   Product         Sugar[g]/100g   Sugar[g]    Chart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="181dp" />
 
 
     <android.support.design.widget.BottomNavigationView
@@ -60,6 +54,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
+
+    <TextView
+        android:id="@+id/txtTab3"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Amount   Product         Sugar[g]/100g   Sugar[g]    Chart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="250dp" />
 
 
 </android.support.constraint.ConstraintLayout>
