@@ -76,7 +76,7 @@ public class ReceiptActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
 
         Receipts receipts = new Receipts(getApplicationContext());
-        InputStream inputStream = getResources().openRawResource(R.raw.receipts);
+        InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         receipts.loadCSV(inputStream);
 
         Integer item = b.getInt("item");

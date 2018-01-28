@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Load CSV
         //final Receipts receipts = new Receipts(getApplicationContext());
-        //InputStream inputStream = getResources().openRawResource(R.raw.receipts);
+        //InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         //receipts.loadCSV(inputStream);
 
         // Adds Menu listener
