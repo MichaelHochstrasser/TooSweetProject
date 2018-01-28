@@ -13,9 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +60,27 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private void loadPieChart(PieChart pieChart, Receipts receipts){
+        List<PieEntry> entries = new ArrayList<>();
+        List<ReceiptArticle> receiptArticle = receipts.getReceiptAll().getTopSugarProducts(5);
+
+        float sumTopProducts = 0;
+        for(int i=0; i<5; i++){
+            // turn your data into Entry objects
+            String x_axis_string = new String("Week 1 ");
+            entries.add(new PieEntry((float)receiptArticle.get(i).getAbsoluteSugar(), receiptArticle.get(i).getArticle().getName()));
+            sumTopProducts += (float)receiptArticle.get(i).getAbsoluteSugar();
+        }
+
+        float sugarOthers = (float) receipts.getReceiptAll().getAbsoluteSugarofReceipt() - sumTopProducts;
+        entries.add(new PieEntry(sugarOthers, "others"));
+
+
+        PieDataSet set = new PieDataSet(entries, "Election Results");
+        PieData data = new PieData(set);
+        pieChart.setData(data);
+        pieChart.invalidate(); // refresh
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +98,15 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //Load CSV
+        final Receipts receipts = new Receipts(getApplicationContext());
+        InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
+        receipts.loadCSV(inputStream);
+
+        // Load chart data
+        PieChart piechart = (PieChart) findViewById(R.id.piechart);
+        loadPieChart(piechart, receipts);
 
         //Load first Article
         //receipts.getReceipts().get(0).getReceiptArticles().get(0).findArticleFromFoodrepo();
