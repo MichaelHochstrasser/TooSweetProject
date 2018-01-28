@@ -29,6 +29,9 @@
         <activity
             android:name=".ReceiptActivity"
             android:label="@string/title_activity_receipt"></activity>
+        <activity
+            android:name=".AlternativeActivity"
+            android:label="@string/title_activity_article"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -78,6 +79,7 @@ public class ReceiptActivity extends AppCompatActivity {
         //Bundle bundle = intent.getExtras();
         //Receipts receipts = (Receipts) bundle.getSerializable("receipts");
         Bundle b = getIntent().getExtras();
+        final Integer item = b.getInt("item");
 
         Receipts receipts = new Receipts(getApplicationContext());
         InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
@@ -88,7 +90,6 @@ public class ReceiptActivity extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_shoppings);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        Integer item = b.getInt("item");
 
         listProducts = (ListView) findViewById(R.id.listProducts);
 
@@ -114,6 +115,24 @@ public class ReceiptActivity extends AppCompatActivity {
         Parcelable state = listProducts.onSaveInstanceState();
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
+
+        listProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(ReceiptActivity.this, AlternativeActivity.class);
+                myIntent.putExtra("Article_pos", position);
+                myIntent.putExtra("Receipt_pos", item);
+
+                /*if(position==arrShoppyings.size()-1){
+                    myIntent.putExtra("item", -1);
+                } else {
+                    myIntent.putExtra("item", position);
+                }*/
+                startActivity(myIntent);
+
+            }
+        });
 
         //Load first Article
         //Articles
