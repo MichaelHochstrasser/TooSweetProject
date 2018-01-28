@@ -21,12 +21,21 @@ public class ReceiptArticle implements Serializable {
     private String rawArticle_label;
     private double cash;
     private  Article article;
+    private Double totalSugarOfReceipt;
     Context context;
 
 
     public ReceiptArticle(Context context) {
         this.article = null;
         this.context = context;
+    }
+
+    public Double getTotalSugarOfReceipt() {
+        return totalSugarOfReceipt;
+    }
+
+    public void setTotalSugarOfReceipt(Double totalSugarOfReceipt) {
+        this.totalSugarOfReceipt = totalSugarOfReceipt;
     }
 
     public double getQuantity() {
@@ -135,5 +144,4 @@ public class ReceiptArticle implements Serializable {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
-
 }
