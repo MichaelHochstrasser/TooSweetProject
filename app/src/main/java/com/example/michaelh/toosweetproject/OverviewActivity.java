@@ -94,22 +94,6 @@ public class OverviewActivity extends AppCompatActivity {
 
     private void loadDummyTopList(ListView listProducts){
         List<ReceiptArticle> receiptArticles = new ArrayList<>();
-        // Cola
-        ReceiptArticle receiptArticle1 = new ReceiptArticle(getApplicationContext());
-        receiptArticle1.setQuantity(20);
-        receiptArticle1.setRawArticle_label("Cola");
-        Article Article1 = new Article("Cola", -1, 500,10.6);
-        receiptArticle1.setArticle(Article1);
-        receiptArticles.add(receiptArticle1);
-
-        ReceiptArticle receiptArticle2 = new ReceiptArticle(getApplicationContext());
-        receiptArticle2.setQuantity(30);
-        receiptArticle2.setRawArticle_label("Müesli");
-        Article Article2 = new Article("Müesli", -1, 200,7);
-        receiptArticle2.setArticle(Article2);
-        receiptArticles.add(receiptArticle2);
-
-
 
         arrayAdapter = new ProductAdapter(receiptArticles,getApplicationContext());
         listProducts.setAdapter(arrayAdapter);
@@ -118,6 +102,16 @@ public class OverviewActivity extends AppCompatActivity {
         listProducts.setAdapter(arrayAdapter);
         listProducts.onRestoreInstanceState(state);
 
+    }
+
+    private void loadTopSugarListView(Receipts receipts, ListView listProducts){
+            List<ReceiptArticle> receiptArticle = receipts.getTopSugarProducts(5);
+            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
+            listProducts.setAdapter(arrayAdapter);
+
+        Parcelable state = listProducts.onSaveInstanceState();
+        listProducts.setAdapter(arrayAdapter);
+        listProducts.onRestoreInstanceState(state);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +128,14 @@ public class OverviewActivity extends AppCompatActivity {
         loadChart(chart);
 
         ListView listProducts = (ListView) findViewById(R.id.listMostProduct);
-        //loadDummyTopList(listProducts);
+
+        //Load CSV
+        final Receipts receipts = new Receipts(getApplicationContext());
+        InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
+        receipts.loadCSV(inputStream);
+
+        loadTopSugarListView(receipts, listProducts);
+
 
     }
 }
