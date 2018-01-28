@@ -19,8 +19,10 @@
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="250dp"
-            android:text="Amount   Product         Sugar[g]/100g   Sugar[g]    Chart"
+            android:text="Amount   Product                    Sugar[g]    Chart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="248dp" />

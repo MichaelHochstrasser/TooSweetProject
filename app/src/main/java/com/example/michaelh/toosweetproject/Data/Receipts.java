@@ -124,8 +124,24 @@ public class Receipts implements Serializable {
         this.receiptAll.calcTotalAmountSugar();
     }
 
+    public void sortReceipts_byDate(){
+        Collections.sort(this.getReceipts(), new Comparator<Receipt>(){
+            public int compare(Receipt obj1, Receipt obj2)
+            {
+                // TODO Auto-generated method stub
+                if (obj1.getDay().before(obj2.getDay())) {
+                    return 1;
+                }
+                else                {
+                    return -1; //TODO implement equal
+                }}
+        });
 
-        // List<ReceiptArticle> receiptArticles = new ArrayList<>();
+        //return receiptArticles;
+    }
+
+
+    // List<ReceiptArticle> receiptArticles = new ArrayList<>();
         /*Double totalSugar = 0.0;
         Double max = 0.0;
         for (int i = 0; i < Receipts.size(); i++) {
