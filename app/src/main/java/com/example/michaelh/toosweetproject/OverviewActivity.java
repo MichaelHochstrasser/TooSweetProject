@@ -134,7 +134,7 @@ public class OverviewActivity extends AppCompatActivity {
         loadChart(chart);
 
         ListView listProducts = (ListView) findViewById(R.id.listMostProduct);
-        loadDummyTopList(listProducts);
+        //loadDummyTopList(listProducts);
 
     }
 }
