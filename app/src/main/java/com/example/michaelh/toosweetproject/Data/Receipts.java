@@ -129,7 +129,7 @@ public class Receipts implements Serializable {
             public int compare(Receipt obj1, Receipt obj2)
             {
                 // TODO Auto-generated method stub
-                if (obj1.getDay().before(obj2.getDay())) {
+                if (obj1.getDay().after(obj2.getDay())) {
                     return 1;
                 }
                 else                {

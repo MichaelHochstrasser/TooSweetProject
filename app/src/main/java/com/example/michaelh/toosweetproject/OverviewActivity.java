@@ -13,14 +13,10 @@ import android.widget.ListView;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -65,19 +61,19 @@ public class OverviewActivity extends AppCompatActivity {
     private void loadChart(LineChart chart, Receipts receipts){
         List<Entry> entries = new ArrayList<Entry>();
 
-        List<Integer> yValues = new ArrayList<Integer>();
+        //List<Integer> yValues = new ArrayList<Integer>();
         receipts.sortReceipts_byDate();
-        for (int i = 0; i < receipts.getReceipts().size(); i++) {
+        /*for (int i = 0; i < receipts.getReceipts().size(); i++) {
             yValues.add((int) Math.round(receipts.getReceipts().get(i).calcTotalAmountSugar()));
-        }
+        }*/
 
-        for(int i=0; i<5; i++){
+        for (int i = 0; i < receipts.getReceipts().size(); i++) {
             // turn your data into Entry objects
             String x_axis_string = new String("Week 1 ");
-            entries.add(new Entry(i, yValues.get(i)));
+            entries.add(new Entry(i, (int) Math.round(receipts.getReceipts().get(i).calcTotalAmountSugar())));
         }
 
-        LineDataSet dataSet = new LineDataSet(entries, "weekly sugar consumption [g]"); // add entries to dataset
+        LineDataSet dataSet = new LineDataSet(entries, "Sugar consumption over time"); // add entries to dataset
         //dataSet.setColor(...);
         //dataSet.setValueTextColor(...); // styling, ...
 
@@ -131,7 +127,7 @@ public class OverviewActivity extends AppCompatActivity {
 
         // Load chart data
         LineChart chart = (LineChart) findViewById(R.id.chart);
-        loadChart(chart);
+        loadChart(chart,receipts);
 
         loadTopSugarListView(receipts, listProducts);
 
