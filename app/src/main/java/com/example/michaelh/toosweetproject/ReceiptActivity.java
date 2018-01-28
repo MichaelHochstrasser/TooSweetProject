@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.michaelh.toosweetproject.Data.Receipt;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
@@ -25,6 +26,7 @@ public class ReceiptActivity extends AppCompatActivity {
     ListView listProducts;
     ArrayAdapter arrayAdapter;
     ImageButton btnRefresh;
+    TextView txtSugtotReceipt;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -61,7 +63,9 @@ public class ReceiptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receipt);
-        
+
+        txtSugtotReceipt = (TextView) findViewById(R.id.txtSugtotReceipt);
+
         btnRefresh = (ImageButton)findViewById(R.id.imgBotRefresh);
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +100,9 @@ public class ReceiptActivity extends AppCompatActivity {
             receipt = receipts.getReceiptAll();
         }
 
+        txtSugtotReceipt.setText("Total amount of sugar: " + );
+
+        receipt.calcTotalAmountSugar();
         List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
         arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
         listProducts.setAdapter(arrayAdapter);
