@@ -62,16 +62,14 @@ public class OverviewActivity extends AppCompatActivity {
         }
     };
 
-    private void loadChart(LineChart chart){
+    private void loadChart(LineChart chart, Receipts receipts){
         List<Entry> entries = new ArrayList<Entry>();
 
         List<Integer> yValues = new ArrayList<Integer>();
-
-        yValues.add(550);
-        yValues.add(400);
-        yValues.add(450);
-        yValues.add(500);
-        yValues.add(550);
+        receipts.sortReceipts_byDate();
+        for (int i = 0; i < receipts.getReceipts().size(); i++) {
+            yValues.add((int) Math.round(receipts.getReceipts().get(i).calcTotalAmountSugar()));
+        }
 
         for(int i=0; i<5; i++){
             // turn your data into Entry objects
