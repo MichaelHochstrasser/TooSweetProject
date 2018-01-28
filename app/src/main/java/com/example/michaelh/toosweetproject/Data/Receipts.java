@@ -121,4 +121,22 @@ public class Receipts implements Serializable {
         }
         return receiptArticles;
     }
+
+    public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
+
+        return receiptArticles;
+    }
+    public List<ReceiptArticle> getTopSugarProducts(int numberOfElements){
+        List<ReceiptArticle> receiptArticles = getAllReceiptArticle();
+        receiptArticles = sortReceiptArticles(receiptArticles);
+
+        List<ReceiptArticle> out = new ArrayList<>();
+        for(int i = 0; i < numberOfElements; i++) {
+            out.add(receiptArticles.get(i));
+        }
+
+        return out;
+
+
+    }
 }
