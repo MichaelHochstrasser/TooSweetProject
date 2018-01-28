@@ -16,9 +16,11 @@ import android.widget.Toast;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         List<ReceiptArticle> receiptArticle = receipts.getReceiptAll().getTopSugarProducts(5);
 
         float sumTopProducts = 0;
-        for(int i=0; i<5; i++){
+        for(int i=0; i<4; i++){
             // turn your data into Entry objects
             String x_axis_string = new String("Week 1 ");
             entries.add(new PieEntry((float)receiptArticle.get(i).getAbsoluteSugar(), receiptArticle.get(i).getArticle().getName()));
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         PieDataSet set = new PieDataSet(entries, "Election Results");
+        set.setColors(ColorTemplate.JOYFUL_COLORS);
+        Legend legend = pieChart.getLegend();
+        legend.setWordWrapEnabled(true);
+        pieChart.setEntryLabelColor(255);
         PieData data = new PieData(set);
         pieChart.setData(data);
         pieChart.invalidate(); // refresh
