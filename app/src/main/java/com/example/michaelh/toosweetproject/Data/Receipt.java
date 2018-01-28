@@ -129,4 +129,19 @@ public class Receipt implements Serializable {
         }
         return total;
     }
+
+    /*public List<ReceiptArticle> sortBySugar(){
+        List<ReceiptArticle> unsorted = new ArrayList<>();
+        List<ReceiptArticle> sorted = new ArrayList<>();
+        unsorted.addAll(this.ReceiptArticles);
+
+        while (unsorted.size()>0){
+            Double max = 0.0;
+            Integer position = 0;
+            for (int i = 0; i < unsorted.size(); i++) {
+                if (unsorted.get(i).getAbsoluteSugar())
+            }
+        }
+
+    }*/
 }

@@ -7,53 +7,52 @@
     android:layout_height="match_parent"
     tools:context="com.example.michaelh.toosweetproject.OverviewActivity">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <ListView
-        android:id="@+id/listProducts"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtSugtotReceipt"
-        android:layout_marginTop="36dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtSugtotReceipt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtReceipt"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:text="Total Sugar amount [g] per Shopping"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        <ListView
+            android:id="@+id/listProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/txtTabelle"
+            android:layout_alignStart="@+id/txtTabelle"
+            android:layout_below="@+id/txtSugtotReceipt"
+            android:layout_marginTop="36dp" />
 
-    <TextView
-        android:id="@+id/txtTabelle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtSugtotReceipt"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="11dp"
-        android:text="Amount   Product                                     Sugar [g]   Chart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        <TextView
+            android:id="@+id/txtSugtotReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtReceipt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Total Sugar amount [g] per Shopping"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <ImageButton
-        android:id="@+id/imgBotRefresh"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@android:drawable/ic_menu_rotate" />
+        <TextView
+            android:id="@+id/txtTabelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtSugtotReceipt"
+            android:layout_below="@+id/imgBotRefresh"
+            android:text="Amount   Product                                     Sugar [g]   Chart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/imgBotRefresh"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:visibility="invisible"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+    </RelativeLayout>
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="0dp"

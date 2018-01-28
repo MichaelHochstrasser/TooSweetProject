@@ -138,6 +138,7 @@ public class Receipts implements Serializable {
 
 
     }
+
         // List<ReceiptArticle> receiptArticles = new ArrayList<>();
         /*Double totalSugar = 0.0;
         Double max = 0.0;

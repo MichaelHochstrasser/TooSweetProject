@@ -96,13 +96,16 @@ public class ReceiptActivity extends AppCompatActivity {
         Receipt receipt;
         if (item>-1) {
             receipt = receipts.getReceipts().get(item);
+            setTitle("Einkauf vom " + receipt.getDate() + " in " + receipt.getStoreName());
         } else {
             receipt = receipts.getReceiptAll();
             receipt = receipts.getReceiptAll();
+            setTitle("All Shoppings");
         }
 
         Double totalSugar = receipt.calcTotalAmountSugar();
         txtSugtotReceipt.setText("Total amount of sugar: " + Math.round(totalSugar) + "g");
+
 
         List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
         arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
