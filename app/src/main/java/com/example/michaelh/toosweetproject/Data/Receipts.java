@@ -101,6 +101,7 @@ public class Receipts implements Serializable {
         for (int i = 0; i < Receipts.size(); i++) {
             arr.add("Einkauf vom " + Receipts.get(i).getDate() + " in " + Receipts.get(i).getStoreName());
         }
+        //arr.add("All");
         return arr;
     }
 
