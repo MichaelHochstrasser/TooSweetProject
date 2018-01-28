@@ -100,9 +100,9 @@ public class ReceiptActivity extends AppCompatActivity {
             receipt = receipts.getReceiptAll();
         }
 
-        txtSugtotReceipt.setText("Total amount of sugar: " + );
+        Double totalSugar = receipt.calcTotalAmountSugar();
+        txtSugtotReceipt.setText("Total amount of sugar: " + Double.toString(totalSugar) + "g");
 
-        receipt.calcTotalAmountSugar();
         List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
         arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
         listProducts.setAdapter(arrayAdapter);
