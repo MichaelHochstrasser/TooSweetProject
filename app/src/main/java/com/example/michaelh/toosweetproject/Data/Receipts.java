@@ -124,7 +124,7 @@ public class Receipts implements Serializable {
         this.receiptAll.calcTotalAmountSugar();
     }
 
-    public void sortReceipts_byDate(){
+    public Receipts sortReceipts_byDate(Receipts receipts){
         Collections.sort(this.getReceipts(), new Comparator<Receipt>(){
             public int compare(Receipt obj1, Receipt obj2)
             {
@@ -137,7 +137,7 @@ public class Receipts implements Serializable {
                 }}
         });
 
-        //return receiptArticles;
+        return receipts;
     }
 
 

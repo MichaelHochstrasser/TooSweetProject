@@ -83,7 +83,6 @@ public class ReceiptActivity extends AppCompatActivity {
         InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         receipts.loadCSV(inputStream);
 
-
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_shoppings);
@@ -108,6 +107,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
 
         List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
+        receiptArticle = receipt.sortReceiptArticles(receiptArticle);
         arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
         listProducts.setAdapter(arrayAdapter);
 
