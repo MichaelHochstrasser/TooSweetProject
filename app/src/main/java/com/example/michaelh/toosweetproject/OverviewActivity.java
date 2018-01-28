@@ -13,14 +13,10 @@ import android.widget.ListView;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -131,7 +127,7 @@ public class OverviewActivity extends AppCompatActivity {
 
         // Load chart data
         LineChart chart = (LineChart) findViewById(R.id.chart);
-        loadChart(chart);
+        loadChart(chart,receipts);
 
         loadTopSugarListView(receipts, listProducts);
 
