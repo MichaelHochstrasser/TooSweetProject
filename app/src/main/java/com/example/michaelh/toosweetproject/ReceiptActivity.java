@@ -37,7 +37,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_shoppings:
-                    Intent shoppingIntent = new Intent(ReceiptActivity.this, ReceiptActivity.class);
+                    Intent shoppingIntent = new Intent(ReceiptActivity.this, ShoppingsActivity.class);
                     startActivity(shoppingIntent);
                     //mTextMessage.setText(R.string.title_dashboard);
                     return true;
@@ -77,6 +77,12 @@ public class ReceiptActivity extends AppCompatActivity {
         Receipts receipts = new Receipts(getApplicationContext());
         InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         receipts.loadCSV(inputStream);
+
+
+        // Adds Menu listener
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_shoppings);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         Integer item = b.getInt("item");
 
