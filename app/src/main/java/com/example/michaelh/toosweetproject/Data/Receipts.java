@@ -119,7 +119,24 @@ public class Receipts implements Serializable {
 
         this.receiptAll.calcTotalAmountSugar();
     }
+    public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
 
+        return receiptArticles;
+    }
+    public List<ReceiptArticle> getTopSugarProducts(int numberOfElements){
+
+        List<ReceiptArticle> receiptArticles = getReceiptAll().getReceiptArticles();
+        receiptArticles = sortReceiptArticles(receiptArticles);
+
+        List<ReceiptArticle> out = new ArrayList<>();
+        for(int i = 0; i < numberOfElements; i++) {
+            out.add(receiptArticles.get(i));
+        }
+
+        return out;
+
+
+    }
         // List<ReceiptArticle> receiptArticles = new ArrayList<>();
         /*Double totalSugar = 0.0;
         Double max = 0.0;
