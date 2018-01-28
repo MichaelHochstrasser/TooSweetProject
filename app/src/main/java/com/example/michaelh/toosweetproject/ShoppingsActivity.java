@@ -59,6 +59,7 @@ public class ShoppingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.einkauf);
 
+
         //Load UI
         listReceipts = (ListView) findViewById(R.id.listReceipts);
         btnAll = (Button)findViewById(R.id.btnAllShoppings);
@@ -79,7 +80,7 @@ public class ShoppingsActivity extends AppCompatActivity {
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        //navigation.setSelectedItemId(R.id.navigation_shoppings);
         //Show
         arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());
         Parcelable state = listReceipts.onSaveInstanceState();
