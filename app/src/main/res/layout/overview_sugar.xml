@@ -34,7 +34,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="250dp"
-            android:text="Amount   Product                    Sugar[g]    Chart"
+            android:text="Amount   Product                                     Sugar[g]    Chart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="248dp" />
