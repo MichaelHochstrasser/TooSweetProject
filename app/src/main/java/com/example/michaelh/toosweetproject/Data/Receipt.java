@@ -99,11 +99,16 @@ public class Receipt implements Serializable {
 
     public Double calcTotalAmountSugar(){
         Double total = 0.0;
+        Double max = 0.0;
         for (int i = 0; i < ReceiptArticles.size(); i++) {
             total += ReceiptArticles.get(i).getArticle().getAbsoluteSugar();
+            if (ReceiptArticles.get(i).getArticle().getAbsoluteSugar()>max){
+                max = ReceiptArticles.get(i).getArticle().getAbsoluteSugar();
+            }
         }
         for (int i = 0; i < ReceiptArticles.size(); i++) {
             ReceiptArticles.get(i).setTotalSugarOfReceipt(total);
+            ReceiptArticles.get(i).setMaxSugarOfReceipt(max);
         }
         return total;
     }

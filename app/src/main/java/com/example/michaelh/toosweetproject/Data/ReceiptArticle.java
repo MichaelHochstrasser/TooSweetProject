@@ -22,6 +22,7 @@ public class ReceiptArticle implements Serializable {
     private double cash;
     private  Article article;
     private Double totalSugarOfReceipt;
+    private Double maxSugarOfReceipt;
     Context context;
 
 
@@ -101,6 +102,15 @@ public class ReceiptArticle implements Serializable {
         }
         return sugar;
     }
+
+    public Double getMaxSugarOfReceipt() {
+        return maxSugarOfReceipt;
+    }
+
+    public void setMaxSugarOfReceipt(Double maxSugarOfReceipt) {
+        this.maxSugarOfReceipt = maxSugarOfReceipt;
+    }
+
     public void findArticleFromFoodrepo(){
 
         String search = this.getRawArticle_label().toLowerCase().replace(" ","-");

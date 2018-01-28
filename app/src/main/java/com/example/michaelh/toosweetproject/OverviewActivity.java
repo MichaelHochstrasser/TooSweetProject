@@ -126,6 +126,7 @@ public class OverviewActivity extends AppCompatActivity {
 
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_overview);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // Load chart data
@@ -133,7 +134,7 @@ public class OverviewActivity extends AppCompatActivity {
         loadChart(chart);
 
         ListView listProducts = (ListView) findViewById(R.id.listMostProduct);
-        loadDummyTopList(listProducts);
+        //loadDummyTopList(listProducts);
 
     }
 }
