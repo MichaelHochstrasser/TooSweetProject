@@ -16,16 +16,6 @@
         tools:layout_editor_absoluteY="0dp">
 
         <ImageView
-            android:id="@+id/imgSugar1"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignStart="@+id/imgLogo"
-            android:layout_below="@+id/imgLogo"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/sugar1" />
-
-        <ImageView
             android:id="@+id/imgpfeil"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -55,8 +45,9 @@
             android:id="@+id/piechart"
             android:layout_width="340dp"
             android:layout_height="200dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/imgSugar1"
+            android:layout_alignStart="@+id/imgLogo"
+            android:layout_below="@+id/imgLogo"
+            android:layout_marginTop="10dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="236dp" />
 
