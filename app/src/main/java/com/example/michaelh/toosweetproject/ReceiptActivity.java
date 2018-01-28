@@ -99,7 +99,6 @@ public class ReceiptActivity extends AppCompatActivity {
             setTitle("Einkauf vom " + receipt.getDate() + " in " + receipt.getStoreName());
         } else {
             receipt = receipts.getReceiptAll();
-            receipt = receipts.getReceiptAll();
             setTitle("All Shoppings");
         }
 
@@ -109,6 +108,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
         List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
         receiptArticle = receipt.sortReceiptArticles(receiptArticle);
+        receipt.setReceiptArticles(receiptArticle);
         arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
         listProducts.setAdapter(arrayAdapter);
 
