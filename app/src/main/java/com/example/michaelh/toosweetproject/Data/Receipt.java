@@ -1,7 +1,11 @@
 package com.example.michaelh.toosweetproject.Data;
 
+import android.util.Log;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -13,6 +17,7 @@ import java.util.List;
 public class Receipt implements Serializable {
     // TODO: Should we change to private and use get / set instaed
     private String Date;
+    private Calendar day;
     private String Time;
     private String StoreName;
     private String TransactionNumber;
@@ -24,6 +29,15 @@ public class Receipt implements Serializable {
         StoreName = storeName;
         TransactionNumber = transactionNumber;
         this.ReceiptArticles = new ArrayList();
+
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        try {
+            cal.setTime(sdf.parse(Date));// all done
+        } catch (Exception e){
+            Log.e("Calendar","Error Parse");
+        }
+        this.day = cal;
     }
 
     public String getDate() {
@@ -99,6 +113,7 @@ public class Receipt implements Serializable {
         }
         return arr;
     }
+
     public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
         Collections.sort(receiptArticles, new Comparator<ReceiptArticle>(){
             public int compare(ReceiptArticle obj1, ReceiptArticle obj2)
@@ -114,6 +129,7 @@ public class Receipt implements Serializable {
 
         return receiptArticles;
     }
+
     public List<ReceiptArticle> getTopSugarProducts(int numberOfElements) {
 
         List<ReceiptArticle> receiptArticles = sortReceiptArticles(getReceiptArticles());
@@ -127,6 +143,13 @@ public class Receipt implements Serializable {
         return out;
     }
 
+    public Calendar getDay() {
+        return day;
+    }
+
+    public void setDay(Calendar day) {
+        this.day = day;
+    }
 
     public Double calcTotalAmountSugar(){
         Double total = 0.0;
