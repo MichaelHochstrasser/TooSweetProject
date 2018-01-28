@@ -48,7 +48,7 @@ public class ProfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.overview_sugar);
+        setContentView(R.layout.profil);
         
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
