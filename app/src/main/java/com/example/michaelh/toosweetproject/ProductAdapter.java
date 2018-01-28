@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
@@ -24,6 +25,7 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
         TextView txtAmount;
         TextView txtReduction_100g;
         ImageView imgAlternative;
+        ProgressBar progressBarSugtot1;
     }
 
     public ProductAdapter(List<ReceiptArticle> data, Context context) {
@@ -61,6 +63,7 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
             viewHolder.txtSugtotAlt = (TextView) convertView.findViewById(R.id.txtSugtot1);
             viewHolder.txtAmount = (TextView) convertView.findViewById(R.id.txtAmount);
             viewHolder.txtReduction_100g = (TextView) convertView.findViewById(R.id.txtReduction_100g);
+            viewHolder.progressBarSugtot1 = (ProgressBar) convertView.findViewById(R.id.progressBarSugtot1);
             result=convertView;
 
             convertView.setTag(viewHolder);
@@ -73,10 +76,13 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
         result.startAnimation(animation);
         lastPosition = position;*/
 
+        Integer status = (int) Math.round(receiptArticle.getAbsoluteSugar() / receiptArticle.getTotalSugarOfReceipt() * 100);
+
         viewHolder.txtAlternativeName.setText(receiptArticle.getRawArticle_label());
         viewHolder.txtSugtotAlt.setText("");
-        viewHolder.txtAmount.setText(String.format( "Value of a: %.2f", Double.toString(receiptArticle.getQuantity())));
+        //viewHolder.txtAmount.setText(String.format("Value of a: %.2f", Double.toString(receiptArticle.getQuantity())) + "g");
         viewHolder.txtReduction_100g.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
+        viewHolder.progressBarSugtot1.setProgress(status);
         // Return the completed view to render on screen
         return convertView;
     }
