@@ -77,11 +77,13 @@ public class ProductAdapter extends ArrayAdapter<ReceiptArticle> implements View
         lastPosition = position;*/
 
         Integer status = (int) Math.round(receiptArticle.getAbsoluteSugar() / receiptArticle.getTotalSugarOfReceipt() * 100);
+        Integer max = (int) Math.round(receiptArticle.getMaxSugarOfReceipt() / receiptArticle.getTotalSugarOfReceipt() * 100);
 
         viewHolder.txtAlternativeName.setText(receiptArticle.getRawArticle_label());
         viewHolder.txtSugtotAlt.setText("");
-        //viewHolder.txtAmount.setText(String.format("Value of a: %.2f", Double.toString(receiptArticle.getQuantity())) + "g");
-        viewHolder.txtReduction_100g.setText(Double.toString(receiptArticle.getAbsoluteSugar()));
+        viewHolder.txtAmount.setText(Double.toString(receiptArticle.getQuantity()));
+        viewHolder.txtReduction_100g.setText(String.format("Value of a: %.2f", Double.toString(receiptArticle.getAbsoluteSugar())) + "g");
+        viewHolder.progressBarSugtot1.setMax(max);
         viewHolder.progressBarSugtot1.setProgress(status);
         // Return the completed view to render on screen
         return convertView;
