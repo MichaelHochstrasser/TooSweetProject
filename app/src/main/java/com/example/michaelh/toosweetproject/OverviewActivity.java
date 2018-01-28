@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.michaelh.toosweetproject.Data.Article;
+import com.example.michaelh.toosweetproject.Data.Receipt;
+import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -63,10 +66,17 @@ public class OverviewActivity extends AppCompatActivity {
     private void loadChart(LineChart chart){
         List<Entry> entries = new ArrayList<Entry>();
 
-        for(int i=1000; i<=1005; i++){
+        List<Integer> yValues = new ArrayList<Integer>();
+        yValues.add(550);
+        yValues.add(400);
+        yValues.add(450);
+        yValues.add(500);
+        yValues.add(550);
+
+        for(int i=0; i<5; i++){
             // turn your data into Entry objects
             String x_axis_string = new String("Week 1 ");
-            entries.add(new Entry(i, i));
+            entries.add(new Entry(i, yValues.get(i)));
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "weekly sugar consumption [g]"); // add entries to dataset
@@ -82,6 +92,33 @@ public class OverviewActivity extends AppCompatActivity {
         chart.invalidate(); // refresh
     }
 
+    private void loadDummyTopList(ListView listProducts){
+        List<ReceiptArticle> receiptArticles = new ArrayList<>();
+        // Cola
+        ReceiptArticle receiptArticle1 = new ReceiptArticle(getApplicationContext());
+        receiptArticle1.setQuantity(20);
+        receiptArticle1.setRawArticle_label("Cola");
+        Article Article1 = new Article("Cola", -1, 500,10.6);
+        receiptArticle1.setArticle(Article1);
+        receiptArticles.add(receiptArticle1);
+
+        ReceiptArticle receiptArticle2 = new ReceiptArticle(getApplicationContext());
+        receiptArticle2.setQuantity(30);
+        receiptArticle2.setRawArticle_label("Müesli");
+        Article Article2 = new Article("Müesli", -1, 200,7);
+        receiptArticle2.setArticle(Article2);
+        receiptArticles.add(receiptArticle2);
+
+
+
+        arrayAdapter = new ProductAdapter(receiptArticles,getApplicationContext());
+        listProducts.setAdapter(arrayAdapter);
+
+        Parcelable state = listProducts.onSaveInstanceState();
+        listProducts.setAdapter(arrayAdapter);
+        listProducts.onRestoreInstanceState(state);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,5 +131,9 @@ public class OverviewActivity extends AppCompatActivity {
         // Load chart data
         LineChart chart = (LineChart) findViewById(R.id.chart);
         loadChart(chart);
+
+        ListView listProducts = (ListView) findViewById(R.id.listMostProduct);
+        loadDummyTopList(listProducts);
+
     }
 }
