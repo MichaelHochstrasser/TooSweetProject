@@ -78,9 +78,11 @@ public class MainActivity extends AppCompatActivity {
         entries.add(new PieEntry(sugarOthers, "others"));
 
 
-        PieDataSet set = new PieDataSet(entries, "Election Results");
+        PieDataSet set = new PieDataSet(entries, "");
         set.setColors(ColorTemplate.JOYFUL_COLORS);
         Legend legend = pieChart.getLegend();
+        pieChart.getDescription().setText("");
+
         legend.setWordWrapEnabled(true);
         pieChart.setEntryLabelColor(255);
         PieData data = new PieData(set);
