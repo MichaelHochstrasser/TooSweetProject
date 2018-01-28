@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
@@ -82,6 +81,8 @@ public class ReceiptActivity extends AppCompatActivity {
         Integer item = b.getInt("item");
 
         listProducts = (ListView) findViewById(R.id.listProducts);
+
+        receipts.getReceipts().get(item).calcTotalAmountSugar();
 
         if (item>-1) {
             List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
