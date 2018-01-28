@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.michaelh.toosweetproject.Data.Receipt;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 
@@ -88,16 +89,16 @@ public class ReceiptActivity extends AppCompatActivity {
 
         listProducts = (ListView) findViewById(R.id.listProducts);
 
+        Receipt receipt;
         if (item>-1) {
-            receipts.getReceipts().get(item).calcTotalAmountSugar();
-            List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
-            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
-            listProducts.setAdapter(arrayAdapter);
+            receipt = receipts.getReceipts().get(item);
         } else {
-            List<ReceiptArticle> receiptArticle = receipts.getAllReceiptArticle();
-            arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
-            listProducts.setAdapter(arrayAdapter);
+            receipt = receipts.getReceiptAll();
         }
+
+        List<ReceiptArticle> receiptArticle = receipt.getReceiptArticles();
+        arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
+        listProducts.setAdapter(arrayAdapter);
 
         Parcelable state = listProducts.onSaveInstanceState();
         listProducts.setAdapter(arrayAdapter);
