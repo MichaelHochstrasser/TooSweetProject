@@ -19,6 +19,7 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -123,15 +124,15 @@ public class ShoppingsActivity extends AppCompatActivity {
 
         for (int i = 0; i < receipts.getReceipts().size(); i++) {
             // turn your data into Entry objects
-            String x_axis_string = new String("Week 1 ");
             entries.add(new Entry(i, (int) Math.round(receipts.getReceipts().get(i).calcTotalAmountSugar())));
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Sugar consumption over time"); // add entries to dataset
+        //dataSet.setColors(ColorTemplate.PASTEL_COLORS[0]);
         //dataSet.setColor(...);
         //dataSet.setValueTextColor(...); // styling, ...
 
-
+        chart.getDescription().setText("");
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
