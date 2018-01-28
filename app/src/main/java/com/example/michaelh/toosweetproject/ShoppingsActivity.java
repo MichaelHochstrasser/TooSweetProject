@@ -97,7 +97,8 @@ public class ShoppingsActivity extends AppCompatActivity {
 
         //navigation.setSelectedItemId(R.id.navigation_shoppings);
         //Show
-        arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());
+        final List<String> arrShoppyings = receipts.toArray();
+        arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,arrShoppyings);
         Parcelable state = listReceipts.onSaveInstanceState();
         listReceipts.setAdapter(arrayAdapter);
         listReceipts.onRestoreInstanceState(state);
@@ -106,7 +107,14 @@ public class ShoppingsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getApplicationContext(),receipts.getReceipts().get(position).getDate().toString(),Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
-                myIntent.putExtra("item",position);
+
+                myIntent.putExtra("item", position);
+
+                /*if(position==arrShoppyings.size()-1){
+                    myIntent.putExtra("item", -1);
+                } else {
+                    myIntent.putExtra("item", position);
+                }*/
                 startActivity(myIntent);
 
             }
