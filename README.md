@@ -26,7 +26,7 @@ Cooperation with Migros → Migros implementing our app idea into their Migros a
 
 ---
 #### Our Team
-* Michael Hochstrasser - MSc Computitional Designes, 
-* Gabriel Hochstrasser-  MSc Machine Learing Engineer,  
-* Charlotte Soland - MSc Food Engineer (finishing 2019)
+* Michael Hochstrasser - MSc Computitional Designes
+* Gabriel Hochstrasser-  MSc Machine Learing Engineer  
+* Charlotte Soland - Master Student in Food Engineering
 
