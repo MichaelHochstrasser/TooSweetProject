@@ -126,6 +126,7 @@ public class OverviewActivity extends AppCompatActivity {
 
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_overview);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // Load chart data

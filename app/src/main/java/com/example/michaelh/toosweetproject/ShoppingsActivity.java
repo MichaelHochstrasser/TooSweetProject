@@ -77,9 +77,13 @@ public class ShoppingsActivity extends AppCompatActivity {
         InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         receipts.loadCSV(inputStream);
 
+
+
         // Adds Menu listener
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_shoppings);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         //navigation.setSelectedItemId(R.id.navigation_shoppings);
         //Show
         arrayAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,receipts.toArray());
