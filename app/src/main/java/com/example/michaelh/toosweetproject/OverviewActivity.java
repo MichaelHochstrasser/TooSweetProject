@@ -13,10 +13,14 @@ import android.widget.ListView;
 import com.example.michaelh.toosweetproject.Data.ReceiptArticle;
 import com.example.michaelh.toosweetproject.Data.Receipts;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -87,6 +91,32 @@ public class OverviewActivity extends AppCompatActivity {
         chart.setData(lineData);
         chart.invalidate(); // refresh
     }
+    private void loadPieChart(PieChart pieChart, Receipts receipts){
+        List<PieEntry> entries = new ArrayList<>();
+        List<ReceiptArticle> receiptArticle = receipts.getReceiptAll().getTopSugarProducts(5);
+
+        float sumTopProducts = 0;
+        for(int i=0; i<5; i++){
+            // turn your data into Entry objects
+            String x_axis_string = new String("Week 1 ");
+            entries.add(new PieEntry((float)receiptArticle.get(i).getAbsoluteSugar(), receiptArticle.get(i).getArticle().getName()));
+            sumTopProducts += (float)receiptArticle.get(i).getAbsoluteSugar();
+        }
+
+        float sugarOthers = (float) receipts.getReceiptAll().getAbsoluteSugarofReceipt() - sumTopProducts;
+        entries.add(new PieEntry(sugarOthers, "others"));
+
+
+        //entries.add(new PieEntry(18.5f, "Green"));
+        //entries.add(new PieEntry(26.7f, "Yellow"));
+        //entries.add(new PieEntry(24.0f, "Red"));
+        //entries.add(new PieEntry(30.8f, "Blue"));
+
+        PieDataSet set = new PieDataSet(entries, "Election Results");
+        PieData data = new PieData(set);
+        pieChart.setData(data);
+        pieChart.invalidate(); // refresh
+    }
 
     private void loadDummyTopList(ListView listProducts){
         List<ReceiptArticle> receiptArticles = new ArrayList<>();
@@ -119,16 +149,19 @@ public class OverviewActivity extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_overview);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        // Load chart data
-        LineChart chart = (LineChart) findViewById(R.id.chart);
-        loadChart(chart);
-
         ListView listProducts = (ListView) findViewById(R.id.listMostProduct);
 
         //Load CSV
         final Receipts receipts = new Receipts(getApplicationContext());
         InputStream inputStream = getResources().openRawResource(R.raw.receiptsnew);
         receipts.loadCSV(inputStream);
+
+        // Load chart data
+        LineChart chart = (LineChart) findViewById(R.id.chart);
+        loadChart(chart);
+        // Load chart data
+        PieChart piechart = (PieChart) findViewById(R.id.piechart);
+        loadPieChart(piechart, receipts);
 
         loadTopSugarListView(receipts, listProducts);
 
