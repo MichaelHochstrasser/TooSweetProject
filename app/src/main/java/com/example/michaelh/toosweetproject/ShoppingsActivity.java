@@ -66,7 +66,7 @@ public class ShoppingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(ShoppingsActivity.this, ReceiptActivity.class);
-                myIntent.putExtra("testVariable", testVariable);
+                myIntent.putExtra("item", -1);
                 startActivity(myIntent);
             }
         });
