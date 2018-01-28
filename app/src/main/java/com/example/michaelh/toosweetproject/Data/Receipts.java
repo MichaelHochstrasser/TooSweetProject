@@ -90,6 +90,8 @@ public class Receipts implements Serializable {
             //this.Receipts.getReceiptArticles.get(pos).add()
 
         }
+
+        loadReceiptAll();
     }
 
     public List<String> toArray(){
