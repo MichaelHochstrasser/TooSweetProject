@@ -98,6 +98,7 @@ public class ReceiptActivity extends AppCompatActivity {
             receipt = receipts.getReceipts().get(item);
         } else {
             receipt = receipts.getReceiptAll();
+            receipt = receipts.getReceiptAll();
         }
 
         Double totalSugar = receipt.calcTotalAmountSugar();
