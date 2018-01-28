@@ -101,9 +101,17 @@ public class Receipts implements Serializable {
 
     public List<ReceiptArticle> getAllReceiptArticle(){
         List<ReceiptArticle> receiptArticles = new ArrayList<>();
+        Double totalSugar = 0.0;
         for (int i = 0; i < Receipts.size(); i++) {
             for (int j = 0; j < Receipts.get(i).getReceiptArticles().size(); j++) {
                 receiptArticles.add(Receipts.get(i).getReceiptArticles().get(j));
+                totalSugar += Receipts.get(i).getReceiptArticles().get(j).getAbsoluteSugar();
+            }
+        }
+
+        for (int i = 0; i < Receipts.size(); i++) {
+            for (int j = 0; j < Receipts.get(i).getReceiptArticles().size(); j++) {
+                Receipts.get(i).getReceiptArticles().get(j).setTotalSugarOfReceipt(totalSugar);
             }
         }
         return receiptArticles;

@@ -82,9 +82,8 @@ public class ReceiptActivity extends AppCompatActivity {
 
         listProducts = (ListView) findViewById(R.id.listProducts);
 
-        receipts.getReceipts().get(item).calcTotalAmountSugar();
-
         if (item>-1) {
+            receipts.getReceipts().get(item).calcTotalAmountSugar();
             List<ReceiptArticle> receiptArticle = receipts.getReceipts().get(item).getReceiptArticles();
             arrayAdapter = new ProductAdapter(receiptArticle,getApplicationContext());
             listProducts.setAdapter(arrayAdapter);
