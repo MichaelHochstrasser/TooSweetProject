@@ -2,6 +2,8 @@ package com.example.michaelh.toosweetproject.Data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -75,6 +77,7 @@ public class Receipt implements Serializable {
         return absoluteTotalSugar;
     }
 
+
     public void addReceiptArticle(ReceiptArticle receiptArticle){
         for (int i = 0; i < ReceiptArticles.size(); i++) {
             if (ReceiptArticles.get(i).getRawArticle_label().equals(receiptArticle.getRawArticle_label())){
@@ -96,7 +99,21 @@ public class Receipt implements Serializable {
         }
         return arr;
     }
+    public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
+        Collections.sort(receiptArticles, new Comparator<ReceiptArticle>(){
+            public int compare(ReceiptArticle obj1, ReceiptArticle obj2)
+            {
+                // TODO Auto-generated method stub
+                if (obj1.getAbsoluteSugar() < obj2.getAbsoluteSugar()) {
+                    return 1;
+                }
+                else                {
+                    return -1; //TODO implement equal
+                }}
+        });
 
+        return receiptArticles;
+    }
     public Double calcTotalAmountSugar(){
         Double total = 0.0;
         Double max = 0.0;
@@ -112,4 +129,19 @@ public class Receipt implements Serializable {
         }
         return total;
     }
+
+    /*public List<ReceiptArticle> sortBySugar(){
+        List<ReceiptArticle> unsorted = new ArrayList<>();
+        List<ReceiptArticle> sorted = new ArrayList<>();
+        unsorted.addAll(this.ReceiptArticles);
+
+        while (unsorted.size()>0){
+            Double max = 0.0;
+            Integer position = 0;
+            for (int i = 0; i < unsorted.size(); i++) {
+                if (unsorted.get(i).getAbsoluteSugar())
+            }
+        }
+
+    }*/
 }

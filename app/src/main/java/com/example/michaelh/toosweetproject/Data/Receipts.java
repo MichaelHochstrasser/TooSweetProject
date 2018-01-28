@@ -7,6 +7,8 @@ import com.example.michaelh.toosweetproject.CSVFile;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -121,14 +123,11 @@ public class Receipts implements Serializable {
 
         this.receiptAll.calcTotalAmountSugar();
     }
-    public List<ReceiptArticle> sortReceiptArticles(List<ReceiptArticle> receiptArticles){
 
-        return receiptArticles;
-    }
     public List<ReceiptArticle> getTopSugarProducts(int numberOfElements){
 
         List<ReceiptArticle> receiptArticles = getReceiptAll().getReceiptArticles();
-        receiptArticles = sortReceiptArticles(receiptArticles);
+        //receiptArticles = (receiptArticles);
 
         List<ReceiptArticle> out = new ArrayList<>();
         for(int i = 0; i < numberOfElements; i++) {
@@ -139,6 +138,7 @@ public class Receipts implements Serializable {
 
 
     }
+
         // List<ReceiptArticle> receiptArticles = new ArrayList<>();
         /*Double totalSugar = 0.0;
         Double max = 0.0;
